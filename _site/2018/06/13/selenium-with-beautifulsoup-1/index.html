@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>파이썬 크롤링 튜토리얼 - 5 : Beautiful Soup와 Selenium을 함께 사용하는 방법 | 개발새발 블로그</title>
+  <meta name="author" content="dohyun">
+  <meta name="description" content="페이스북에 마이페이지에있는 정보를 크롤링할겁니다.">
+  <meta property="og:title" content="파이썬 크롤링 튜토리얼 - 5 : Beautiful Soup와 Selenium을 함께 사용하는 방법 | 개발새발 블로그">
+  <meta property="og:url" content="http://localhost:4000/2018/06/13/selenium-with-beautifulsoup-1/">
+  <meta property="og:site_name" content="개발새발 블로그">
+  <meta property="og:description" content="페이스북에 마이페이지에있는 정보를 크롤링할겁니다.">
+  <meta property="og:image" content="http://www.fanghuomen.org/data/out/171/726453.jpg">
+  <meta property="og:type" content="blog">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:description" content="페이스북에 마이페이지에있는 정보를 크롤링할겁니다.">
+  <meta name="twitter:title" content="파이썬 크롤링 튜토리얼 - 5 : Beautiful Soup와 Selenium을 함께 사용하는 방법 | 개발새발 블로그">
+  <meta name="twitter:url" content="http://localhost:4000/2018/06/13/selenium-with-beautifulsoup-1/">
+  <meta name="twitter:site" content="개발새발 블로그">
+  <meta name="twitter:creator" content="@DirtyBackend">
+  <meta name="twitter:domain" content="http://localhost:4000">
+  <meta property="twitter:image" content="http://www.fanghuomen.org/data/out/171/726453.jpg">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Lora|Space+Mono:700">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/icon/favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <link rel="alternate" type="application/rss+xml" title="개발새발 블로그" href="http://localhost:4000/feed.xml">
+  <link rel="canonical" href="http://localhost:4000/2018/06/13/selenium-with-beautifulsoup-1/">
+
+  
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-120591017-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  
+</head>
+
+
+  <body>
+
+    <main>
+      <article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="section-padding--lg mast rellax" data-rellax-speed="-4">
+    <a class="nav nav--white" href="/">
+      <i class="fa fa-lg fa-arrow-left"></i>
+      <span>Back to Posts</span>
+    </a>
+    <figure class="absolute-bg mast__img" style="background-image: url('http://www.fanghuomen.org/data/out/171/726453.jpg');"></figure>
+    <div class="mast__container">
+      <span><time datetime="2018-06-13T00:00:00+09:00" itemprop="datePublished">Jun 13, 2018</time></span>
+      <h1 itemprop="name headline">파이썬 크롤링 튜토리얼 - 5 : Beautiful Soup와 Selenium을 함께 사용하는 방법</h1>
+      
+        <span>Posted in 
+          
+            <a class="nav--white" href="/category/crawl">crawl</a>
+          
+        </span>
+      
+      <span></span>
+    </div>
+  </header>
+
+  <section class="section-padding bg-grey" itemprop="articleBody">
+    <div class="post">
+      <h2 id="selenium으로-진입한-웹-사이트-크롤링하기">Selenium으로 진입한 웹 사이트 크롤링하기</h2>
+<blockquote>
+  <p><a href="/2018/06/09/python-crawling-1/">파이썬 크롤링 튜토리얼 - 1 : Beautiful Soup의 개념과 사용법</a><br />
+<a href="/2018/06/10/python-crawling-2/">파이썬 크롤링 튜토리얼 - 2 : Beautiful Soup로 네이버 실시간 검색어 크롤링</a><br />
+<a href="2018/06/12/python-crawling-selenium-1/">파이썬 크롤링 튜토리얼 - 3 : Selenium 사용법과 이해</a><br />
+<a href="/2018/06/12/python-crawling-selenium-2/">파이썬 크롤링 튜토리얼 - 4 : Selenium을 이용해 페이스북에 로그인</a></p>
+</blockquote>
+
+<h4 id="1-facebook-profile로-접속할-준비하기">1. Facebook Profile로 접속할 준비하기</h4>
+<p><a href="/2018/06/12/python-crawling-selenium-2/">파이썬 크롤링 튜토리얼 - 4</a>에서 페이스북에 로그인 하는 방법을 알아봤었습니다.
+튜토리얼 - 4 에서 완성한 코드를 재검토해보고 시작하겠습니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.keys</span> <span class="kn">import</span> <span class="n">Keys</span>
+<span class="n">usr</span> <span class="o">=</span> <span class="s">"아이디"</span>
+<span class="n">pwd</span> <span class="o">=</span> <span class="s">"패스워드"</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="s">"/Users/hjvsdh/crawl/chromedriver"</span>
+<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://www.facebook.org"</span><span class="p">)</span>
+<span class="k">assert</span> <span class="s">"Facebook"</span> <span class="ow">in</span> <span class="n">driver</span><span class="o">.</span><span class="n">title</span>
+<span class="n">elem</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s">"email"</span><span class="p">)</span>
+<span class="n">elem</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">usr</span><span class="p">)</span>
+<span class="n">elem</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s">"pass"</span><span class="p">)</span>
+<span class="n">elem</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">pwd</span><span class="p">)</span>
+<span class="n">elem</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">Keys</span><span class="o">.</span><span class="n">RETURN</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>오늘은 이 코드를 응용해서, 내 타임라인에 있는 글을 몇개 긁어와보려고 합니다. 우리가 사용하는 driver 가 profile에 접속할 수 있도록 profile 링크(href)를 찾아줘야하는데, 이전에 사용했던 선택자말고 <code class="highlighter-rouge">XPath</code>를 사용해볼겁니다.</p>
+
+<p>프로필태그의 href값을 찾기 위해 아래 사진처럼 개발자모드에 들어가서 이 부분을 선택해줍니다.
+<img src="https://user-images.githubusercontent.com/39974109/41325353-b99e94b6-6ef4-11e8-93ca-59d9ecca5e7c.png" alt="image" />
+이 부분을 우클릭하고 <code class="highlighter-rouge">Copy -&gt; Copy XPath</code>를 해줍니다.</p>
+
+<p>그리고 4장에서 완성했던 코드 제일 끝에, 아래 코드를 입력합니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_elements_by_xpath</span><span class="p">(</span><span class="s">'이곳에 Copy했던 XPath를 붙여넣습니다.'</span><span class="p">)</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">'href'</span><span class="p">))</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>driver.find_elements_by_xpath XPath로 해당 elements 를 가져오는 겁니다. 기본적으로 a = find_elements_by_xpath 를 하게되면 a 는 list 상태가 됩니다.
+elements 안에 있는 href(프로필 주소) 속성값으로 Web Driver 가 접속하게 되는겁니다.</p>
+
+<p>이제 내 타임라인에 접근하는 것은 성공했습니다.</p>
+
+<blockquote>
+  <p>만약 XPath를 찾을 수 없다는 에러가 나오면, time 을 import 하여 Facebook 페이지가 원활히 로딩이 끝날때 까지 time.sleep(5)로 5초정도 기다려주면 해결됩니다. <code class="highlighter-rouge">import time</code>을 하고, elem.send_keys(Keys.RETURN)아래에 time.sleep(5)를 씁니다. UI가 로딩될 때 까지 기다리는 방법도 있습니다. <a href="http://selenium-python.readthedocs.io/waits.html">참고 문서</a></p>
+</blockquote>
+
+<h4 id="2-facebook-profile에-있는-데이터-크롤링하기">2. Facebook Profile에 있는 데이터 크롤링하기</h4>
+<p>페이스북 타임라인 포스트 크롤링같은 경우에는 <a href="https://developers.facebook.com/docs/graph-api/?locale=ko_KR">Facebook Graph API</a>를 사용하는게 훨씬 간결하고 편합니다. 하지만 우리가 크롤링하려는 부분은 바로 이 부분입니다.
+<img src="https://user-images.githubusercontent.com/39974109/41327261-bc0cfefa-6efd-11e8-9abd-a40bff4114f0.png" alt="image" />
+좌측에 위치한 소개 부분을 크롤링 할 겁니다. Web Driver 가 현재 실행중인 웹 사이트의 소스를 가져오려면 아래 소스를 입력해야 합니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">req</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">page_source</span></code></pre></figure>
+
+<p>이렇게 req에 소스를 저장했으면 이 req가 HTML parser를 사용해야한다고 알려줘야합니다. <a href="/2018/06/09/python-crawling-1/">참고 : 파이썬 크롤링 튜토리얼 - 1</a></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">soup</span><span class="o">=</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span></code></pre></figure>
+
+<p>그리고 선택자를 찾아내야 합니다. 
+<img src="https://user-images.githubusercontent.com/39974109/41327433-6a5ebffc-6efe-11e8-93bc-c3c7b554957e.png" alt="image" />
+<code class="highlighter-rouge">Copy -&gt; Copy Selector</code> 을 하게 되면 div의 id가 하나 나옵니다. 그럼 튜토리얼 - 1 에서 처럼 출력이 되는지 확인하기 위해 코드를 입력해봅시다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">information_list</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">"#intro_container_id"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">information</span> <span class="ow">in</span> <span class="n">information_list</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">information</span><span class="o">.</span><span class="n">text</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="https://user-images.githubusercontent.com/39974109/41327533-d64ed58a-6efe-11e8-8688-5febd0b61725.png" alt="image" />
+크롤링이 된게 확인이 됩니다!</p>
+
+<p>최종 소스</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="code"><pre><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.keys</span> <span class="kn">import</span> <span class="n">Keys</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="n">usr</span> <span class="o">=</span> <span class="s">"+821026830490"</span>
+<span class="n">pwd</span> <span class="o">=</span> <span class="s">"Ehgus!59294"</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="s">"/Users/hjvsdh/crawl/chromedriver"</span>
+<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://www.facebook.org"</span><span class="p">)</span>
+<span class="k">assert</span> <span class="s">"Facebook"</span> <span class="ow">in</span> <span class="n">driver</span><span class="o">.</span><span class="n">title</span>
+<span class="n">elem</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s">"email"</span><span class="p">)</span>
+<span class="n">elem</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">usr</span><span class="p">)</span>
+<span class="n">elem</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s">"pass"</span><span class="p">)</span>
+<span class="n">elem</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">pwd</span><span class="p">)</span>
+<span class="n">elem</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">Keys</span><span class="o">.</span><span class="n">RETURN</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_elements_by_xpath</span><span class="p">(</span><span class="s">'//*[@id="u_0_a"]/div[1]/div[1]/div/a'</span><span class="p">)</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">'href'</span><span class="p">))</span>
+
+<span class="n">req</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">page_source</span>
+<span class="n">soup</span><span class="o">=</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
+<span class="n">information_list</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">"#intro_container_id"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">information</span> <span class="ow">in</span> <span class="n">information_list</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">information</span><span class="o">.</span><span class="n">text</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre></figure>
+
+
+      <div id="disqus_thread"></div>
+      <script>
+
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      /*
+      var disqus_config = function () {
+      this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      */
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://l0o02-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+</article>
+
+
+
+    </main>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script type="text/javascript" src="/assets/js/app.js"></script>
+
+
+  </body>
+
+</html>

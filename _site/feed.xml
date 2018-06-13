@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>개발새발 블로그</title>
+    <description>Python, Django, React 등 이런저런 개발 그리고 잡다한 생각을 적을거에요.</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 13 Jun 2018 11:43:48 +0900</pubDate>
+    <lastBuildDate>Wed, 13 Jun 2018 11:43:48 +0900</lastBuildDate>
+    <generator>Jekyll v3.8.3</generator>
+    
+      <item>
+        <title>파이썬 크롤링 튜토리얼 - 5 : Beautiful Soup와 Selenium을 함께 사용하는 방법</title>
+        <description>&lt;h2 id=&quot;selenium으로-진입한-웹-사이트-크롤링하기&quot;&gt;Selenium으로 진입한 웹 사이트 크롤링하기&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;/2018/06/09/python-crawling-1/&quot;&gt;파이썬 크롤링 튜토리얼 - 1 : Beautiful Soup의 개념과 사용법&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;/2018/06/10/python-crawling-2/&quot;&gt;파이썬 크롤링 튜토리얼 - 2 : Beautiful Soup로 네이버 실시간 검색어 크롤링&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;2018/06/12/python-crawling-selenium-1/&quot;&gt;파이썬 크롤링 튜토리얼 - 3 : Selenium 사용법과 이해&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;/2018/06/12/python-crawling-selenium-2/&quot;&gt;파이썬 크롤링 튜토리얼 - 4 : Selenium을 이용해 페이스북에 로그인&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;1-facebook-profile로-접속할-준비하기&quot;&gt;1. Facebook Profile로 접속할 준비하기&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;/2018/06/12/python-crawling-selenium-2/&quot;&gt;파이썬 크롤링 튜토리얼 - 4&lt;/a&gt;에서 페이스북에 로그인 하는 방법을 알아봤었습니다.
+튜토리얼 - 4 에서 완성한 코드를 재검토해보고 시작하겠습니다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium.webdriver.common.keys&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Keys&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;아이디&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pwd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;패스워드&quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/Users/hjvsdh/crawl/chromedriver&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Chrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.facebook.org&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Facebook&quot;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_element_by_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;email&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_element_by_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;pass&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Keys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RETURN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;오늘은 이 코드를 응용해서, 내 타임라인에 있는 글을 몇개 긁어와보려고 합니다. 우리가 사용하는 driver 가 profile에 접속할 수 있도록 profile 링크(href)를 찾아줘야하는데, 이전에 사용했던 선택자말고 &lt;code class=&quot;highlighter-rouge&quot;&gt;XPath&lt;/code&gt;를 사용해볼겁니다.&lt;/p&gt;
+
+&lt;p&gt;프로필태그의 href값을 찾기 위해 아래 사진처럼 개발자모드에 들어가서 이 부분을 선택해줍니다.
+&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41325353-b99e94b6-6ef4-11e8-93ca-59d9ecca5e7c.png&quot; alt=&quot;image&quot; /&gt;
+이 부분을 우클릭하고 &lt;code class=&quot;highlighter-rouge&quot;&gt;Copy -&amp;gt; Copy XPath&lt;/code&gt;를 해줍니다.&lt;/p&gt;
+
+&lt;p&gt;그리고 4장에서 완성했던 코드 제일 끝에, 아래 코드를 입력합니다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_elements_by_xpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'이곳에 Copy했던 XPath를 붙여넣습니다.'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_attribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'href'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;driver.find_elements_by_xpath XPath로 해당 elements 를 가져오는 겁니다. 기본적으로 a = find_elements_by_xpath 를 하게되면 a 는 list 상태가 됩니다.
+elements 안에 있는 href(프로필 주소) 속성값으로 Web Driver 가 접속하게 되는겁니다.&lt;/p&gt;
+
+&lt;p&gt;이제 내 타임라인에 접근하는 것은 성공했습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;만약 XPath를 찾을 수 없다는 에러가 나오면, time 을 import 하여 Facebook 페이지가 원활히 로딩이 끝날때 까지 time.sleep(5)로 5초정도 기다려주면 해결됩니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;import time&lt;/code&gt;을 하고, elem.send_keys(Keys.RETURN)아래에 time.sleep(5)를 씁니다. UI가 로딩될 때 까지 기다리는 방법도 있습니다. &lt;a href=&quot;http://selenium-python.readthedocs.io/waits.html&quot;&gt;참고 문서&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;2-facebook-profile에-있는-데이터-크롤링하기&quot;&gt;2. Facebook Profile에 있는 데이터 크롤링하기&lt;/h4&gt;
+&lt;p&gt;페이스북 타임라인 포스트 크롤링같은 경우에는 &lt;a href=&quot;https://developers.facebook.com/docs/graph-api/?locale=ko_KR&quot;&gt;Facebook Graph API&lt;/a&gt;를 사용하는게 훨씬 간결하고 편합니다. 하지만 우리가 크롤링하려는 부분은 바로 이 부분입니다.
+&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41327261-bc0cfefa-6efd-11e8-9abd-a40bff4114f0.png&quot; alt=&quot;image&quot; /&gt;
+좌측에 위치한 소개 부분을 크롤링 할 겁니다. Web Driver 가 현재 실행중인 웹 사이트의 소스를 가져오려면 아래 소스를 입력해야 합니다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page_source&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;이렇게 req에 소스를 저장했으면 이 req가 HTML parser를 사용해야한다고 알려줘야합니다. &lt;a href=&quot;/2018/06/09/python-crawling-1/&quot;&gt;참고 : 파이썬 크롤링 튜토리얼 - 1&lt;/a&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'html.parser'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;그리고 선택자를 찾아내야 합니다. 
+&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41327433-6a5ebffc-6efe-11e8-93bc-c3c7b554957e.png&quot; alt=&quot;image&quot; /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Copy -&amp;gt; Copy Selector&lt;/code&gt; 을 하게 되면 div의 id가 하나 나옵니다. 그럼 튜토리얼 - 1 에서 처럼 출력이 되는지 확인하기 위해 코드를 입력해봅시다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;information_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#intro_container_id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;information&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;information_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;information&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41327533-d64ed58a-6efe-11e8-8688-5febd0b61725.png&quot; alt=&quot;image&quot; /&gt;
+크롤링이 된게 확인이 됩니다!&lt;/p&gt;
+
+&lt;p&gt;최종 소스&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium.webdriver.common.keys&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Keys&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bs4&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;time&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;+821026830490&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pwd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Ehgus!59294&quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/Users/hjvsdh/crawl/chromedriver&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Chrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.facebook.org&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Facebook&quot;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_element_by_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;email&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_element_by_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;pass&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Keys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RETURN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_elements_by_xpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'//*[@id=&quot;u_0_a&quot;]/div[1]/div[1]/div/a'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_attribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'href'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page_source&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'html.parser'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;information_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#intro_container_id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;information&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;information_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;information&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</description>
+        <pubDate>Wed, 13 Jun 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018/06/13/selenium-with-beautifulsoup-1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/06/13/selenium-with-beautifulsoup-1/</guid>
+        
+        
+        <category>crawl</category>
+        
+      </item>
+    
+      <item>
+        <title>파이썬 크롤링 튜토리얼 - 4 : Selenium을 이용해 페이스북에 로그인</title>
+        <description>&lt;h2 id=&quot;selenium으로-facebook-로그인하기&quot;&gt;Selenium으로 Facebook 로그인하기&lt;/h2&gt;
+&lt;p&gt;&lt;sup style=&quot;color: #878787;&quot;&gt;
+    &lt;a href=&quot;/2018/06/09/python-crawling-1/&quot;&gt;Beautiful Soup&lt;/a&gt; 은 1장과 2장에서 다룹니다.
+&lt;/sup&gt;&lt;/p&gt;
+&lt;h4 id=&quot;1-facebook-의-html-분석하기&quot;&gt;1. &lt;a href=&quot;https://www.facebook.com/&quot;&gt;Facebook&lt;/a&gt; 의 HTML 분석하기&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;/2018/06/12/python-crawling-selenium-1/&quot;&gt;파이썬 크롤링 튜토리얼 - 3&lt;/a&gt;의 Selenium으로 검색하기에서 봤듯이, input에 값을 입력하려면 name이나 id같은 &lt;code class=&quot;highlighter-rouge&quot;&gt;선택자&lt;/code&gt;가 필요합니다. 개발자 모드에서 찾아보도록 합시다. 
+&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41305034-aaec211a-6eac-11e8-9f94-3bf30c9e0eb9.png&quot; alt=&quot;image&quot; /&gt;
+아이디를 입력해야 하는 곳은 &lt;code class=&quot;highlighter-rouge&quot;&gt;email&lt;/code&gt;이라는 id를 사용 중입니다.
+&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41305056-b84dd8b2-6eac-11e8-9098-c73e756f3e5a.png&quot; alt=&quot;image&quot; /&gt;
+패스워드를 입력해야 하는 곳은 &lt;code class=&quot;highlighter-rouge&quot;&gt;pass&lt;/code&gt;라는 id를 사용 중입니다.&lt;/p&gt;
+&lt;h4 id=&quot;2-python-코드-작성하기&quot;&gt;2. Python 코드 작성하기&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium.webdriver.common.keys&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Keys&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;아이디&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pwd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;패스워드&quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;WebDriver의 경로&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Chrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.facebook.org&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Facebook&quot;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_element_by_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;email&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_element_by_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;pass&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Keys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RETURN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;usr과 pwd에는 본인의 페이스북 아이디와 비밀번호를 각각 입력해주면 됩니다.&lt;br /&gt;
+driver.get 까지는 &lt;a href=&quot;/2018/06/12/python-crawling-selenium-1/&quot;&gt;파이썬 크롤링 튜토리얼 - 3&lt;/a&gt;에서 다뤘던 내용이라 생략하겠습니다.&lt;br /&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;assert &quot;Facebook&quot; in driver.title&lt;/code&gt; : driver.title이 Facebook 이 아니면 예외처리를 하여 Error을 내줘! 라는 의미입니다. Facebook 에 접근한건지 아닌지를 판단하기 위해 입력한 코드입니다. &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;elem = driver.find_element_by_id(&quot;email&quot;)&lt;/code&gt; : 위에서 분석한 아이디 입력란의 id를 찾아서 커서를 두겠다는 의미입니다.&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;elem.send_keys(usr)&lt;/code&gt; : usr에 입력한 페이스북 아이디 값을 현재 커서가 위치한 곳에 넣겠다는 뜻입니다.&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;elem = driver.find_element_by_id(&quot;pass&quot;)&lt;/code&gt; : 위에서 분석한 패스워드 입력란의 id를 찾아서 커서를 두겠다는 의미입니다.&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;elem.send_keys(pwd)&lt;/code&gt; : pwd에 입력한 페이스북 패스워드 값을 현재 커서가 위치한 곳에 넣겠다는 뜻입니다.&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;elem.send_keys(Keys.RETURN)&lt;/code&gt; : Enter키를 누르게 합니다.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 py파일을 실행하게 되면, 페이스북에 알아서 로그인 하는 게 보입니다.&lt;/p&gt;
+
+&lt;p&gt;응용하여 Logout 기능까지도 만들어 보면, 이 포스트를 제대로 이해했는지 확인할 수 있을 것 같습니다.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 12 Jun 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018/06/12/python-crawling-selenium-2/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/06/12/python-crawling-selenium-2/</guid>
+        
+        
+        <category>crawl</category>
+        
+      </item>
+    
+      <item>
+        <title>파이썬 크롤링 튜토리얼 - 3 : Selenium 사용법과 이해</title>
+        <description>&lt;h2 id=&quot;selenium으로-크롤링-하기&quot;&gt;Selenium으로 크롤링 하기&lt;/h2&gt;
+&lt;p&gt;&lt;sup style=&quot;color: #878787;&quot;&gt;
+    &lt;a href=&quot;/2018/06/09/python-crawling-1/&quot;&gt;Beautiful Soup&lt;/a&gt; 은 1장과 2장에서 다룹니다.
+&lt;/sup&gt;&lt;/p&gt;
+&lt;h4 id=&quot;1-selenium-에-대해서&quot;&gt;1. &lt;a href=&quot;https://www.seleniumhq.org/&quot;&gt;Selenium&lt;/a&gt; 에 대해서&lt;/h4&gt;
+&lt;p&gt;Selenium은 웹 애플리케이션을 위한 &lt;code class=&quot;highlighter-rouge&quot;&gt;테스팅 프레임워크&lt;/code&gt;입니다. 자동화 테스트를 위해 여러 가지 기능을 지원합니다. 다양한 언어에서도 사용이 가능합니다. Beautiful Soap는 웹사이트에서 버튼을 클릭해야 얻을 수 있는 데이터라던가, Javascript 에 조건이 충족되어야만 얻을 수 있는 데이터에 접근하는 것에 한계가 있습니다. 그래서, 직접적으로 웹 사이트에 접근할 수 있게 해주는 Selenium을 사용해야 합니다. 새로운 환경에서 웹 브라우저를 대신해 줄 &lt;a href=&quot;http://chromedriver.chromium.org/downloads&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Web Driver&lt;/code&gt;&lt;/a&gt;가 필요합니다. Web Driver를 눌러 설치를 합시다. Web Driver는 Selenium이 사용할 웹 브라우저이고, Selenium으로 자동화하여 웹 사이트를 탐험하면 됩니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;2-selenium-이해하기&quot;&gt;2. Selenium 이해하기&lt;/h4&gt;
+&lt;p&gt;pip 명령어를 사용해 Selenium 을 설치해줍니다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt; pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;selenium &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Python파일을 하나 만들고 아래 코드를 실행해봅시다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;
+ 
+&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Webdriver의 경로를 입력합니다.&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Chrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;파일을 실행해보면 어떻게 될까요?
+&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41285921-b8616c44-6e78-11e8-95b4-83150949de2a.png&quot; alt=&quot;image&quot; width=&quot;100%&quot; /&gt;
+크롬 창이 켜졌습니다! Selenium 으로 제어하기 때문에, 크롬창에 자동화된 테스트 소프트웨어로 제어중이라는겁니다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'https://www.naver.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;맨 마지막줄에 입력하고, 다시 실행해봅니다. 네이버로 접속되는게 보일겁니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;3-selenium-으로-검색하기&quot;&gt;3. Selenium 으로 검색하기&lt;/h4&gt;
+&lt;p&gt;이제 셀레니움으로 크롬을 꺼냈으니 무라도 썰어야합니다. 자, 아래 코드를 입력해봅시다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Webdriver 경로를 입력합니다.&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Chrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://google.com/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;search_box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_element_by_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;q&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;search_box&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;개발새발 블로그&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;search_box&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;submit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;실행해보면 구글에 개발새발 블로그가 검색됩니다. 어떤식으로 진행이 되는지 하나하나 알아볼까요?
+driver.get()까지는 아까 얘기했으니 그 다음줄부터 알아보겠습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41304474-38b9ec2c-6eab-11e8-888d-6ccfaf6a3c77.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;search_box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_element_by_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;q&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+위 개발자 도구를 확인해보면 우리가 사용할 input의 name이 q 인것을 확인할 수 있습니다. search_box가 커서를 어디다 둬야할 지 name으로 찾아준겁니다.
+&lt;/center&gt;
+
+&lt;center&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;search_box&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;개발새발 블로그&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;search_box&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;submit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+아까 찾은 검색 input 에 개발새발 블로그를 입력하고 submit()으로 검색 버튼을 누른겁니다.
+
+&lt;br /&gt;
+&lt;br /&gt;
+간단하게 Selenium에 대해 알아봤습니다. 다음 장에서는, Facebook Login을 구현해보도록 하겠습니다.
+&lt;/center&gt;
+</description>
+        <pubDate>Tue, 12 Jun 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018/06/12/python-crawling-selenium-1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/06/12/python-crawling-selenium-1/</guid>
+        
+        
+        <category>crawl</category>
+        
+      </item>
+    
+      <item>
+        <title>jekyll 블로그 마크다운에 이미지 빠르고 편하게 업로드</title>
+        <description>&lt;h2 id=&quot;jekyll-마크다운에-이미지-업로드하기&quot;&gt;jekyll 마크다운에 이미지 업로드하기&lt;/h2&gt;
+&lt;p&gt;jekyll 블로그에 이미지 업로드하는데 이미지파일을 하나씩 푸쉬할 수도 없고.. 어떻게 업로드해야하나.. 생각하며 검색하다가
+우연히 발견했다.&lt;/p&gt;
+&lt;h4 id=&quot;1-github-에-로그인하고-아무-repository-에-접속한다&quot;&gt;1. github 에 로그인하고 아무 repository 에 접속한다&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41288395-231600b0-6e81-11e8-83ba-95aa4dc7e339.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;2-issues-에서-new-issue를-클릭하고-이미지를-붙여넣는다&quot;&gt;2. Issues 에서 New issue를 클릭하고, 이미지를 붙여넣는다&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41288483-71430896-6e81-11e8-8872-44fc43de3291.png&quot; alt=&quot;image&quot; /&gt;
+조금만 기다리다보면 Markdown 에서 바로 사용할 수 있는 이미지 링크가 생성된다.
+그대로 복사, 붙여넣기하여 바로 사용하면 된다.&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 12 Jun 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018/06/12/github-io-easy-upload-image/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/06/12/github-io-easy-upload-image/</guid>
+        
+        
+        <category>jekyll</category>
+        
+      </item>
+    
+      <item>
+        <title>프론트엔드 라이브러리 및 프레임워크 2018</title>
+        <description>&lt;h2 id=&quot;프론트엔드-라이브러리-모음-2018&quot;&gt;프론트엔드 라이브러리 모음 2018&lt;/h2&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;particlejs&quot;&gt;&lt;a href=&quot;https://vincentgarreau.com/particles.js/&quot;&gt;Particle.js&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+Particle.js는 말 그대로 JS를 이용해 파티클을 만들어주는 라이브러리이다. 화려한 효과로 백그라운드에 응용이 가능할 것 같다.
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;animejs&quot;&gt;&lt;a href=&quot;http://animejs.com/&quot;&gt;Anime.js&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+Javascript로 원하는 애니메이션을 구현할 수 있게 해준다.
+직접 코딩하는것보다 훨씬 빠르고 간결하게 애니메이션을 구현할 수 있을듯
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;materializecss&quot;&gt;&lt;a href=&quot;https://materializecss.com/&quot;&gt;MaterializeCSS&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+CSS와 Javascript로 컴포넌트들을 구현해 놓았다. 모던한 웹사이트를 만들 때 자주 사용했다.
+다만, Bootstrap보다는 많이 무겁다. 버튼 애니메이션이나 이런저런 효과가 많아서 그런 것 같다.
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;fiction-framework&quot;&gt;&lt;a href=&quot;https://sujan-s.github.io/fictoan/docs/docs.html#&quot;&gt;Fiction Framework&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+스타일리쉬한 컴포넌트들을 가지고 있는 프레임워크이다. Materialize 보단 가볍다.
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;epic-spinner&quot;&gt;&lt;a href=&quot;http://epic-spinners.epicmax.co/#/&quot;&gt;Epic Spinner&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+CSS로만 짜여진 스피너들을 모아놓았다. 로딩화면 같은곳에 적용할만하다.
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;grad-pad&quot;&gt;&lt;a href=&quot;http://ourownthing.co.uk/gradpad.html&quot;&gt;Grad Pad&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+웹 사이트 상에 배경화면 그라데이션을 쉽게 제작할 수 있게 해준다.
+한쪽을 반투명하게 혹은 투명하게 바꿀수도 있다. 기존의 배경화면에 overlay 할 경우에는 반투명도 사용하기 편할 것 같다.
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 11 Jun 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018/06/11/front-end-library-complication/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/06/11/front-end-library-complication/</guid>
+        
+        
+        <category>library</category>
+        
+        <category>front-end</category>
+        
+      </item>
+    
+      <item>
+        <title>파이썬 크롤링 튜토리얼 - 2 : Beautiful Soup로 네이버 실시간 검색어 크롤링</title>
+        <description>&lt;h2 id=&quot;beautiful-soup-로-네이버-실시간-검색어-크롤링-하기&quot;&gt;Beautiful Soup 로 네이버 실시간 검색어 크롤링 하기&lt;/h2&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;1-requests-설치하기&quot;&gt;1. Requests 설치하기&lt;/h4&gt;
+&lt;p&gt;우리가 만들고자 하는 것은 웹 상에있는 HTML 혹은 여러 소스파일들을 분석하고 가공하여 쓸모있는 데이터로 만드는 것 입니다.
+그러기 위해서 우선 인터넷 상에 있는 HTML 파일을 읽어와야 하는데 &lt;a href=&quot;http://docs.python-requests.org/en/master/&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;requests&lt;/code&gt;&lt;/a&gt; 라이브러리가 도와줄겁니다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;requests&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;requests 라이브러리를 설치했으면, requests가 어떤 녀석인지부터 차근차근 이해해보도록 합시다.
+python 파일을 하나 만들어서 아래 코드를 입력해봅니다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;URL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'http://naver.com/'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;URL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;결과를 확인하셨나요?, 그러면 이 라이브러리가 어떤 라이브러리인지 바로 이해가 되실겁니다. https://www.naver.com/ 의 HTML소스를 String으로 변환시켜서 변수에 저장시켜주는 역할을 합니다. 그 외에도 쿠키와 헤더를 추가하거나 parameter, data 를 전달할 수도 있습니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;2-naver-웹사이트-분석하기&quot;&gt;2. Naver 웹사이트 분석하기&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.naver.com/&quot;&gt;네이버&lt;/a&gt; 실시간 검색어 크롤링을 하기 위해선 해당 부분의 HTML을 이해해야 합니다. 개발자모드에 진입해서 크롤링해야할 부분을 잡아줘야합니다.
+개발자모드 왼쪽 상단에 위치하는 Select 도구를 클릭하여, 크롤링하길 원하는 부분을 페이지상에서 잡아줘야합니다.
+&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41200451-a90d4078-6cdf-11e8-8335-b064430a6357.png&quot; alt=&quot;image&quot; /&gt;
+네이버 실시간 검색어 부분을 잘 선택했다면 다음과 비슷한 코드가 선택되어있을겁니다.
+&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41200514-ba44e70a-6ce0-11e8-9c2c-722837dd35b6.png&quot; alt=&quot;image&quot; /&gt;
+그 코드를 우클릭하여 &lt;code class=&quot;highlighter-rouge&quot;&gt;Copy -&amp;gt; Copy Selector&lt;/code&gt;를 눌러 &lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/CSS/%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/%EC%84%A4%EB%A0%89%ED%84%B0&quot;&gt;선택자&lt;/a&gt;를 복사해줍니다.
+선택자란 말 그대로 선택해주는 요소입니다. CSS 코드에서 특정 요소를 선택하여 스타일을 적용할 때 사용합니다. 우리는 이 선택자를 이용해 필요한 부분을 &lt;code class=&quot;highlighter-rouge&quot;&gt;선택&lt;/code&gt;하여 크롤링해야 합니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+#PM_ID_ct &amp;gt; div.header &amp;gt; div.section_navbar &amp;gt; div.area_hotkeyword.PM_CL_realtimeKeyword_base &amp;gt; div.ah_roll.PM_CL_realtimeKeyword_rolling_base &amp;gt; div &amp;gt; ul &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;li:nth-child(19)&lt;/code&gt; &amp;gt; a &amp;gt; span.ah_k
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;메모장에 붙여 넣어 보면 이런 선택자가 보일 겁니다. 눈치가 빠르신 분들은 &lt;code class=&quot;highlighter-rouge&quot;&gt;li:nth-child(19)&lt;/code&gt;에서 숫자 19가 순위를 의미한 다는 것을 이미 눈치채셨을 겁니다. 다른 순위들을 클릭해보면 1등은 li:nth-child(1), 2등은 li:nth-child(2), 같이 규칙적으로 변합니다. 만약 이 &lt;code class=&quot;highlighter-rouge&quot;&gt;li:nth-child(19)&lt;/code&gt;를 그대로 사용한다면, 19위만 출력이 될 겁니다. 19등만 선택한 선택자이기 때문이죠! 그래서 좀 더 포괄적으로 필요한 데이터를 가져오기 위해 &lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-child()&lt;/code&gt; 부분을 지워줘야합니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+#PM_ID_ct &amp;gt; div.header &amp;gt; div.section_navbar &amp;gt; div.area_hotkeyword.PM_CL_realtimeKeyword_base &amp;gt; div.ah_roll.PM_CL_realtimeKeyword_rolling_base &amp;gt; div &amp;gt; ul &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;li&lt;/code&gt; &amp;gt; a &amp;gt; span.ah_k
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;자, 이제 선택자부분을 잘 골라냈습니다. 그러면 크롤링을 시작해야겠죠?&lt;/p&gt;
+
+&lt;h4 id=&quot;3-네이버-실시간-검색어-순위-크롤링&quot;&gt;3. 네이버 실시간 검색어 순위 크롤링&lt;/h4&gt;
+
+&lt;p&gt;파이썬 코드를 입력합니다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bs4&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'https://www.naver.com/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'html.parser'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;sup style=&quot;color: #878787;&quot;&gt;
+4: req 변수에 https://www.naver.com/ 에 접속하면 받게되는 소스 즉 HTML소스를 저장합니다.&lt;br /&gt;
+5: req 변수에 저장된 HTML 값을 source로 가져옵니다. text는 소스를 가져오는 것이며 req.status_code를 입력하면 &lt;a href=&quot;https://ko.wikipedia.org/wiki/HTTP_%EC%83%81%ED%83%9C_%EC%BD%94%EB%93%9C&quot;&gt;응답 상태&lt;/a&gt;를 가져오게 됩니다.&lt;br /&gt;
+6: BeautifulSoup 에 source 변수가 가지고 있는 값은 HTML라서, HTML.parser을 사용해야 한다고 알려줍니다.
+&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;자 그럼, 조금전에 추출해낸 선택자를 들고 Beautiful Soup 의 크롤링 기능을 사용해볼 차례입니다!
+아래 코드를 입력합니다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#PM_ID_ct &amp;gt; div.header &amp;gt; div.section_navbar &amp;gt; div.area_hotkeyword.PM_CL_realtimeKeyword_base &amp;gt; div.ah_roll.PM_CL_realtimeKeyword_rolling_base &amp;gt; div &amp;gt; ul &amp;gt; li &amp;gt; a &amp;gt; span.ah_k&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;실행해보면, 아래처럼 출력이 됩니다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;[&lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;영국연방국가&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;내로라&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;싱가포르&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;그린북&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;추자현&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;아이스 버킷 챌린지&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;오재원&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;싱가포르 대통령&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;박지성&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;시나몬&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;장도연&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;박지성 딸&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;루게릭병&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;아일랜드&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;김정은&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;흥부 박씨&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;싱가포르 샹그릴라 호텔&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;정글북&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;김민지&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ah_k&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;메트로놈&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;] &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;성공적으로 네이버 실시간 키워드가 출력됩니다.&lt;/p&gt;
+
+&lt;p&gt;그런데 사용하기에는 뭔가 지저분하죠? 아무래도 가공을 더 해야할 것 같습니다.&lt;/p&gt;
+
+&lt;p&gt;방금 입력했던 print 부분을 지우고, 아래 코드를 입력해봅시다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;top_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#PM_ID_ct &amp;gt; div.header &amp;gt; div.section_navbar &amp;gt; div.area_hotkeyword.PM_CL_realtimeKeyword_base &amp;gt;div.ah_roll.PM_CL_realtimeKeyword_rolling_base &amp;gt; div &amp;gt; ul &amp;gt; li &amp;gt; a &amp;gt; span.ah_k&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;글자만 깔끔하게 출력되는게 보이실겁니다. top_list[0]에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;span class=&quot;ah_k&quot;&amp;gt;영국연방국가&amp;lt;/span&amp;gt;&lt;/code&gt; 가 저장되있습니다.
+그 문자열에 &lt;code class=&quot;highlighter-rouge&quot;&gt;.text&lt;/code&gt;를 사용함으로써 html 코드를 제외한 우리가 원하는 키워드 글자만 가져오는 겁니다.&lt;/p&gt;
+
+&lt;p&gt;For 문을 사용하여 전체를 출력하면 될 것 같습니다.&lt;/p&gt;
+
+&lt;p&gt;마지막으로, 다시 print 부분을 지우고 아래 For문을 입력합니다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;top&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;top_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;순서대로 출력이 되는 것을 확인할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41201265-843451dc-6cef-11e8-866f-2a141babdc2b.png&quot; alt=&quot;image&quot; width=&quot;250px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;완성입니다!&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 10 Jun 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018/06/10/python-crawling-2/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/06/10/python-crawling-2/</guid>
+        
+        
+        <category>crawl</category>
+        
+      </item>
+    
+      <item>
+        <title>파이썬 크롤링 튜토리얼 - 1 : Beautiful Soup의 개념과 사용법</title>
+        <description>&lt;h2 id=&quot;beautiful-soup-로-크롤링-하기&quot;&gt;Beautiful Soup 로 크롤링 하기&lt;/h2&gt;
+&lt;p&gt;&lt;sup style=&quot;color: #878787;&quot;&gt;
+    &lt;a href=&quot;/2018/06/12/python-crawling-selenium-1/&quot;&gt;Selenium&lt;/a&gt; 은 3장에서 다룹니다.
+&lt;/sup&gt;&lt;/p&gt;
+&lt;h4 id=&quot;1-beautiful-soup-라이브러리-설치하기&quot;&gt;1. Beautiful Soup 라이브러리 설치하기&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.crummy.com/software/BeautifulSoup/bs4/doc/&quot;&gt;Beautiful Soup&lt;/a&gt;는 HTML과 XML 파일로부터 데이터를 가져오기 위한 라이브러리 입니다.
+Beautiful Soup를 설치하기 위해 아래 명령어를 입력합니다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;bs4&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;2-beautiful-soup-이해하기&quot;&gt;2. Beautiful Soup 이해하기&lt;/h4&gt;
+&lt;p&gt;파이썬 파일을 하나 만들어줍니다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;crawler1.py&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;그리고 파일 안에 아래 코드를 입력합니다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bs4&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;html_doc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
+&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;The Dormouse's story&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;p class=&quot;title&quot;&amp;gt;&amp;lt;b&amp;gt;The Dormouse's story&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;
+
+&amp;lt;p class=&quot;story&quot;&amp;gt;Once upon a time there were three little sisters; and their names were
+&amp;lt;a href=&quot;http://example.com/elsie&quot; class=&quot;sister&quot; id=&quot;link1&quot;&amp;gt;Elsie&amp;lt;/a&amp;gt;,
+&amp;lt;a href=&quot;http://example.com/lacie&quot; class=&quot;sister&quot; id=&quot;link2&quot;&amp;gt;Lacie&amp;lt;/a&amp;gt; and
+&amp;lt;a href=&quot;http://example.com/tillie&quot; class=&quot;sister&quot; id=&quot;link3&quot;&amp;gt;Tillie&amp;lt;/a&amp;gt;;
+and they lived at the bottom of a well.&amp;lt;/p&amp;gt;
+
+&amp;lt;p class=&quot;story&quot;&amp;gt;...&amp;lt;/p&amp;gt;
+&quot;&quot;&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html_doc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'html.parser'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prettify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;sup style=&quot;color: #878787;&quot;&gt;
+ 1: bs4 라이브러리에서 Beautiful Soup를 import 시킴&lt;br /&gt;
+ 2: Beautiful Soup가 잘 작동하는지 확인하기 위해 Example Code 를 생성&lt;br /&gt;
+ 19: html_doc를 html로 끌어옴&lt;br /&gt;
+ 21: 끌어온 데이터를 깔끔하게 정리하여 출력
+&lt;/sup&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt; python crawler1.py &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;위 코드를 입력하여, &lt;code class=&quot;highlighter-rouge&quot;&gt;crawler1.py&lt;/code&gt; 를 실행시켜 봅시다.&lt;/p&gt;
+
+&lt;p&gt;print한 결과를 확인해보면 html_doc의 내용이 깔끔하게 정리되어 출력됩니다.
+한번 변형을 해서 html_doc를 크롤링 해봅시다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt; &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;17번째 줄에 있는 코드를 이렇게 변형하면 어떻게 나올까요?&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;title&amp;gt;The Dormouse's story&amp;lt;/title&amp;gt;&lt;/code&gt;부분이 출력됩니다. html_doc 의 title 부분을 크롤링 했습니다.&lt;/p&gt;
+
+&lt;p&gt;그 외에도 여러가지 기능이 있습니다. 아래에 간단하게 정리해봤습니다.
+위쪽은 코드, 아래쪽은 결과값입니다.&lt;/p&gt;
+&lt;center&gt;
+&lt;hr /&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt; &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;i class=&quot;fa fa-arrow-down fa-1x&quot;&gt;&lt;/i&gt;
+ 
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt; The Dormouse's story &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;hr /&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt; &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;i class=&quot;fa fa-arrow-down fa-1x&quot;&gt;&lt;/i&gt;
+ 
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt; head &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;hr /&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt; &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;i class=&quot;fa fa-arrow-down fa-1x&quot;&gt;&lt;/i&gt;
+ 
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;b&amp;gt;&lt;/span&gt;The Dormouse's story&lt;span class=&quot;nt&quot;&gt;&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;hr /&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt; &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'a'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;i class=&quot;fa fa-arrow-down fa-1x&quot;&gt;&lt;/i&gt; 
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;[&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sister&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://example.com/elsie&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;link1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Elsie&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sister&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://example.com/lacie&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;link2&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Lacie&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sister&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://example.com/tillie&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;link3&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Tillie&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;]&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;hr /&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt; &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;i class=&quot;fa fa-arrow-down fa-1x&quot;&gt;&lt;/i&gt;&lt;br /&gt;
+The Dormouse's story
+
+The Dormouse's story
+Once upon a time there were three little sisters; and their names were
+Elsie,
+Lacie and
+Tillie;
+and they lived at the bottom of a well.
+...
+&lt;hr /&gt;
+&lt;br /&gt;
+&lt;/center&gt;
+&lt;p&gt;다음 장에서는, &lt;a href=&quot;/2018/06/10/python-crawling-2/&quot;&gt;Naver 실시간 검색어 크롤링&lt;/a&gt;을 해보겠습니다.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 09 Jun 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018/06/09/python-crawling-1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/06/09/python-crawling-1/</guid>
+        
+        
+        <category>crawl</category>
+        
+      </item>
+    
+  </channel>
+</rss>

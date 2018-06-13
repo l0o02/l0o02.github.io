@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>파이썬 크롤링 튜토리얼 - 3 : Selenium 사용법과 이해 | 개발새발 블로그</title>
+  <meta name="author" content="dohyun">
+  <meta name="description" content="Selenium의 사용법과 이해를 합니다.">
+  <meta property="og:title" content="파이썬 크롤링 튜토리얼 - 3 : Selenium 사용법과 이해 | 개발새발 블로그">
+  <meta property="og:url" content="http://localhost:4000/2018/06/12/python-crawling-selenium-1/">
+  <meta property="og:site_name" content="개발새발 블로그">
+  <meta property="og:description" content="Selenium의 사용법과 이해를 합니다.">
+  <meta property="og:image" content="https://i2.wp.com/blog.fossasia.org/wp-content/uploads/2017/11/Cross-browser-testing-in-Selenium-Webdriver.png?fit=525%2C333&ssl=1">
+  <meta property="og:type" content="blog">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:description" content="Selenium의 사용법과 이해를 합니다.">
+  <meta name="twitter:title" content="파이썬 크롤링 튜토리얼 - 3 : Selenium 사용법과 이해 | 개발새발 블로그">
+  <meta name="twitter:url" content="http://localhost:4000/2018/06/12/python-crawling-selenium-1/">
+  <meta name="twitter:site" content="개발새발 블로그">
+  <meta name="twitter:creator" content="@DirtyBackend">
+  <meta name="twitter:domain" content="http://localhost:4000">
+  <meta property="twitter:image" content="https://i2.wp.com/blog.fossasia.org/wp-content/uploads/2017/11/Cross-browser-testing-in-Selenium-Webdriver.png?fit=525%2C333&ssl=1">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Lora|Space+Mono:700">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/icon/favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <link rel="alternate" type="application/rss+xml" title="개발새발 블로그" href="http://localhost:4000/feed.xml">
+  <link rel="canonical" href="http://localhost:4000/2018/06/12/python-crawling-selenium-1/">
+
+  
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-120591017-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  
+</head>
+
+
+  <body>
+
+    <main>
+      <article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="section-padding--lg mast rellax" data-rellax-speed="-4">
+    <a class="nav nav--white" href="/">
+      <i class="fa fa-lg fa-arrow-left"></i>
+      <span>Back to Posts</span>
+    </a>
+    <figure class="absolute-bg mast__img" style="background-image: url('https://i2.wp.com/blog.fossasia.org/wp-content/uploads/2017/11/Cross-browser-testing-in-Selenium-Webdriver.png?fit=525%2C333&ssl=1');"></figure>
+    <div class="mast__container">
+      <span><time datetime="2018-06-12T00:00:00+09:00" itemprop="datePublished">Jun 12, 2018</time></span>
+      <h1 itemprop="name headline">파이썬 크롤링 튜토리얼 - 3 : Selenium 사용법과 이해</h1>
+      
+        <span>Posted in 
+          
+            <a class="nav--white" href="/category/crawl">crawl</a>
+          
+        </span>
+      
+      <span></span>
+    </div>
+  </header>
+
+  <section class="section-padding bg-grey" itemprop="articleBody">
+    <div class="post">
+      <h2 id="selenium으로-크롤링-하기">Selenium으로 크롤링 하기</h2>
+<p><sup style="color: #878787;">
+    <a href="/2018/06/09/python-crawling-1/">Beautiful Soup</a> 은 1장과 2장에서 다룹니다.
+</sup></p>
+<h4 id="1-selenium-에-대해서">1. <a href="https://www.seleniumhq.org/">Selenium</a> 에 대해서</h4>
+<p>Selenium은 웹 애플리케이션을 위한 <code class="highlighter-rouge">테스팅 프레임워크</code>입니다. 자동화 테스트를 위해 여러 가지 기능을 지원합니다. 다양한 언어에서도 사용이 가능합니다. Beautiful Soap는 웹사이트에서 버튼을 클릭해야 얻을 수 있는 데이터라던가, Javascript 에 조건이 충족되어야만 얻을 수 있는 데이터에 접근하는 것에 한계가 있습니다. 그래서, 직접적으로 웹 사이트에 접근할 수 있게 해주는 Selenium을 사용해야 합니다. 새로운 환경에서 웹 브라우저를 대신해 줄 <a href="http://chromedriver.chromium.org/downloads"><code class="highlighter-rouge">Web Driver</code></a>가 필요합니다. Web Driver를 눌러 설치를 합시다. Web Driver는 Selenium이 사용할 웹 브라우저이고, Selenium으로 자동화하여 웹 사이트를 탐험하면 됩니다.</p>
+
+<h4 id="2-selenium-이해하기">2. Selenium 이해하기</h4>
+<p>pip 명령어를 사용해 Selenium 을 설치해줍니다.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"> pip <span class="nb">install </span>selenium </code></pre></figure>
+
+<p>Python파일을 하나 만들고 아래 코드를 실행해봅시다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+ 
+<span class="n">path</span> <span class="o">=</span> <span class="s">"Webdriver의 경로를 입력합니다."</span>
+<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>파일을 실행해보면 어떻게 될까요?
+<img src="https://user-images.githubusercontent.com/39974109/41285921-b8616c44-6e78-11e8-95b4-83150949de2a.png" alt="image" width="100%" />
+크롬 창이 켜졌습니다! Selenium 으로 제어하기 때문에, 크롬창에 자동화된 테스트 소프트웨어로 제어중이라는겁니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://www.naver.com'</span><span class="p">)</span></code></pre></figure>
+
+<p>맨 마지막줄에 입력하고, 다시 실행해봅니다. 네이버로 접속되는게 보일겁니다.</p>
+
+<h4 id="3-selenium-으로-검색하기">3. Selenium 으로 검색하기</h4>
+<p>이제 셀레니움으로 크롬을 꺼냈으니 무라도 썰어야합니다. 자, 아래 코드를 입력해봅시다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="s">"Webdriver 경로를 입력합니다."</span>
+<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://google.com/"</span><span class="p">)</span>
+<span class="n">search_box</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">"q"</span><span class="p">)</span>
+<span class="n">search_box</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s">"개발새발 블로그"</span><span class="p">)</span>
+<span class="n">search_box</span><span class="o">.</span><span class="n">submit</span><span class="p">()</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>실행해보면 구글에 개발새발 블로그가 검색됩니다. 어떤식으로 진행이 되는지 하나하나 알아볼까요?
+driver.get()까지는 아까 얘기했으니 그 다음줄부터 알아보겠습니다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/39974109/41304474-38b9ec2c-6eab-11e8-888d-6ccfaf6a3c77.png" alt="image" /></p>
+<center>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">search_box</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">"q"</span><span class="p">)</span></code></pre></figure>
+
+위 개발자 도구를 확인해보면 우리가 사용할 input의 name이 q 인것을 확인할 수 있습니다. search_box가 커서를 어디다 둬야할 지 name으로 찾아준겁니다.
+</center>
+
+<center>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">search_box</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s">"개발새발 블로그"</span><span class="p">)</span>
+<span class="n">search_box</span><span class="o">.</span><span class="n">submit</span><span class="p">()</span></code></pre></figure>
+
+아까 찾은 검색 input 에 개발새발 블로그를 입력하고 submit()으로 검색 버튼을 누른겁니다.
+
+<br />
+<br />
+간단하게 Selenium에 대해 알아봤습니다. 다음 장에서는, Facebook Login을 구현해보도록 하겠습니다.
+</center>
+
+      <div id="disqus_thread"></div>
+      <script>
+
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      /*
+      var disqus_config = function () {
+      this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      */
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://l0o02-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+</article>
+
+
+  <section class="next">
+    <a class="next__link" href="/2018/06/12/python-crawling-selenium-2/" style="background-image: url('https://i.pinimg.com/originals/64/b7/de/64b7deb1bfa083d44f5e5b6a5b0f1859.jpg');">
+      <div class="next__container">
+        <span>Read Next</span>
+        <h2>파이썬 크롤링 튜토리얼 - 4 : Selenium을 이용해 페이스북에 로그인</h2>
+      </div>
+    </a>
+  </section>
+
+
+    </main>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script type="text/javascript" src="/assets/js/app.js"></script>
+
+
+  </body>
+
+</html>

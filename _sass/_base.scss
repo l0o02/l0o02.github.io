@@ -1,0 +1,215 @@
+/**
+ * Base Variables
+ */
+@import url('https://fonts.googleapis.com/css?family=Jua');
+
+$font-header: 'Space Mono', monospace;
+$font-body: 'Inconsolata', monospace;
+$font-post: "Spoqa Han Sans", sans-serif;
+
+$color-alpha: #9f8f68;
+$color-alpha--light: #f5f3ef;
+
+$color-black: #0a0a0a;
+$color-grey: #f8f9f9;
+$color-white: #fff;
+
+$mq-xs: 20em;
+$mq-sm: 30em;
+$mq-md: 54em;
+$mq-lg: 64em;
+$mq-xl: 76.5em;
+$mq-xxl: 114em;
+
+/**
+ * Base Settings/Overwrite Normalize
+ */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-body;
+  font-feature-settings: 'liga' 0;
+  font-size: 100%;
+  line-height: 1.5em;
+
+  @media (min-width: $mq-xs) {
+    font-size: 102.5%;
+  }
+
+  @media (min-width: $mq-sm) {
+    font-size: 105%;
+  }
+
+  @media (min-width: $mq-md) {
+    font-size: 107.5%;
+  }
+
+  @media (min-width: $mq-lg) {
+    font-size: 110%;
+  }
+
+  @media (min-width: $mq-xl) {
+    font-size: 115%;
+  }
+
+  @media (min-width: $mq-xxl) {
+    font-size: 125%;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: $font-header;
+  line-height: 1.1;
+}
+
+h1 {
+  $fontSize: 2.5em;
+
+  @media (min-width: $mq-md) {
+    font-size: $fontSize;
+  }
+
+  @media (min-width: $mq-xl) {
+    font-size: $fontSize + 0.5em;
+  }
+}
+
+h2 {
+  margin-bottom: 0.25em;
+  font-size: 1.75em;
+
+  @media (min-width: $mq-md) {
+    font-size: 2em;
+  }
+}
+
+h3 {
+  margin-bottom: 0.1em;
+
+  font-size: 1.5em;
+}
+
+h4 {
+  margin-bottom: 0.4em;
+  margin-top: 2em;
+  font-size: 1.5em;
+  font-family: $font-header;
+}
+
+p {
+  margin: 0 0 0.75em;
+}
+
+a {
+  color:inherit;
+  text-decoration: none;
+  transition: color 0.4s ease-in-out;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $color-alpha;
+  }
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  font-size: 75%;
+  color: #adadad;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+
+cite {
+  display: block;
+  margin-top: 0.125em;
+
+  font-family: $font-body;
+  font-weight: 400;
+  font-style: normal;
+
+  &:before {
+    content: "\2014 \0020";
+  }
+}
+
+ol, ul {
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Text Selection
+ */
+::selection {
+  color: $color-white;
+  background-color: $color-alpha;
+  text-shadow: none;
+}
+
+/* 커스텀 테마 */
+.highlighter-rouge{
+  background-color: #f2e4c1;
+}
+pre{
+  white-space: pre-wrap;
+}
+
+
+.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #444444;
+}
+.highlight .cp {
+  color: #CC00A3;
+}
+.highlight .cs {
+  color: #CC00A3;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1 {
+  color: #FF0000;
+}
+.highlight .kc {
+  color: #C34E00;
+}
+.highlight .kd {
+  color: #0000FF;
+}
+.highlight .kr {
+  color: #007575;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kt, .highlight .kv {
+  color: #0000FF;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .se, .highlight .sh, .highlight .si, .highlight .sx, .highlight .sr, .highlight .s1, .highlight .ss {
+  color: #009C00;
+}
+.highlight .nb, .highlight .bp {
+  color: #C34E00;
+}
