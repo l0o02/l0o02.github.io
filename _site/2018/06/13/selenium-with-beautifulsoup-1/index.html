@@ -74,12 +74,6 @@
   <section class="section-padding bg-grey" itemprop="articleBody">
     <div class="post">
       <h2 id="selenium으로-진입한-웹-사이트-크롤링하기">Selenium으로 진입한 웹 사이트 크롤링하기</h2>
-<blockquote>
-  <p><a href="/2018/06/09/python-crawling-1/">파이썬 크롤링 튜토리얼 - 1 : Beautiful Soup의 개념과 사용법</a><br />
-<a href="/2018/06/10/python-crawling-2/">파이썬 크롤링 튜토리얼 - 2 : Beautiful Soup로 네이버 실시간 검색어 크롤링</a><br />
-<a href="2018/06/12/python-crawling-selenium-1/">파이썬 크롤링 튜토리얼 - 3 : Selenium 사용법과 이해</a><br />
-<a href="/2018/06/12/python-crawling-selenium-2/">파이썬 크롤링 튜토리얼 - 4 : Selenium을 이용해 페이스북에 로그인</a></p>
-</blockquote>
 
 <h4 id="1-facebook-profile로-접속할-준비하기">1. Facebook Profile로 접속할 준비하기</h4>
 <p><a href="/2018/06/12/python-crawling-selenium-2/">파이썬 크롤링 튜토리얼 - 4</a>에서 페이스북에 로그인 하는 방법을 알아봤었습니다.
@@ -127,8 +121,7 @@
 </pre></td><td class="code"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_elements_by_xpath</span><span class="p">(</span><span class="s">'이곳에 Copy했던 XPath를 붙여넣습니다.'</span><span class="p">)</span>
 <span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">'href'</span><span class="p">))</span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>driver.find_elements_by_xpath XPath로 해당 elements 를 가져오는 겁니다. 기본적으로 a = find_elements_by_xpath 를 하게되면 a 는 list 상태가 됩니다.
-elements 안에 있는 href(프로필 주소) 속성값으로 Web Driver 가 접속하게 되는겁니다.</p>
+<p>driver.find_elements_by_xpath XPath로 해당 elements 를 가져오는 겁니다. 기본적으로 a = find_elements_by_xpath 를 하게되면 a 는 list 상태가 되므로, a[0]을 한 뒤, get_attribute(‘href’)를 하는 겁니다. 그러면 elements 안에 있는 href(프로필 주소) 속성값으로 Web Driver 가 접속하게 되는겁니다.</p>
 
 <p>이제 내 타임라인에 접근하는 것은 성공했습니다.</p>
 
@@ -189,8 +182,8 @@ elements 안에 있는 href(프로필 주소) 속성값으로 Web Driver 가 접
 <span class="kn">from</span> <span class="nn">selenium.webdriver.common.keys</span> <span class="kn">import</span> <span class="n">Keys</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">time</span>
-<span class="n">usr</span> <span class="o">=</span> <span class="s">"+821026830490"</span>
-<span class="n">pwd</span> <span class="o">=</span> <span class="s">"Ehgus!59294"</span>
+<span class="n">usr</span> <span class="o">=</span> <span class="s">"아이디"</span>
+<span class="n">pwd</span> <span class="o">=</span> <span class="s">"패스워드"</span>
 
 <span class="n">path</span> <span class="o">=</span> <span class="s">"/Users/hjvsdh/crawl/chromedriver"</span>
 <span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
@@ -212,6 +205,48 @@ elements 안에 있는 href(프로필 주소) 속성값으로 Web Driver 가 접
 	<span class="k">print</span><span class="p">(</span><span class="n">information</span><span class="o">.</span><span class="n">text</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre></figure>
 
 
+        <div class="category-box">
+          <span class="related">RELATED POST</span>
+          
+            
+
+                
+                  <li class="post-list"><a href="/2018/06/09/python-crawling-1/">- 파이썬 크롤링 튜토리얼 - 1 : Beautiful Soup의 개념과 사용법</a></li>
+                
+              
+            
+
+                
+                  <li class="post-list"><a href="/2018/06/10/python-crawling-2/">- 파이썬 크롤링 튜토리얼 - 2 : Beautiful Soup로 네이버 실시간 검색어 크롤링</a></li>
+                
+              
+            
+
+                
+                  <li class="post-list"><a href="/2018/06/12/python-crawling-selenium-1/">- 파이썬 크롤링 튜토리얼 - 3 : Selenium 사용법과 이해</a></li>
+                
+              
+            
+
+                
+                  <li class="post-list"><a href="/2018/06/12/python-crawling-selenium-2/">- 파이썬 크롤링 튜토리얼 - 4 : Selenium을 이용해 페이스북에 로그인</a></li>
+                
+              
+            
+
+                
+                  <li class="post-list-selected">- 파이썬 크롤링 튜토리얼 - 5 : Beautiful Soup와 Selenium을 함께 사용하는 방법</li>
+                
+              
+            
+
+                
+                  <li class="post-list"><a href="/2018/06/14/python-crawling-pagination-1/">- 파이썬 크롤링 튜토리얼 - 6 : Pagination 된 글 크롤링</a></li>
+                
+              
+            
+          
+        </div>
       <div id="disqus_thread"></div>
       <script>
 
@@ -236,6 +271,15 @@ elements 안에 있는 href(프로필 주소) 속성값으로 Web Driver 가 접
   </section>
 </article>
 
+
+  <section class="next">
+    <a class="next__link" href="/2018/06/14/python-crawling-pagination-1/" style="background-image: url('https://cdn.dribbble.com/users/141880/screenshots/2513164/dailyui-085.gif');">
+      <div class="next__container">
+        <span>Read Next</span>
+        <h2>파이썬 크롤링 튜토리얼 - 6 : Pagination 된 글 크롤링</h2>
+      </div>
+    </a>
+  </section>
 
 
     </main>

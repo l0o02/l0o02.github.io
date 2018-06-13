@@ -92,4 +92,5 @@ and they lived at the bottom of a well.
 <hr>
 <br>
 </center>
- 다음 장에서는, [Naver 실시간 검색어 크롤링](/2018/06/10/python-crawling-2/)을 해보겠습니다.
+공식 문서를 참고하면 더 많은 Beautiful Soup 의 기능들을 확인할 수 있습니다.
+<br>

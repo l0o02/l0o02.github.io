@@ -2,6 +2,7 @@
  * Base Variables
  */
 @import url('https://fonts.googleapis.com/css?family=Jua');
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Unicase:400,700');
 
 $font-header: 'Space Mono', monospace;
 $font-body: 'Inconsolata', monospace;
@@ -179,8 +180,26 @@ ol, ul {
 pre{
   white-space: pre-wrap;
 }
-
-
+.post-list {
+  list-style-type: none;
+  font-size: 1em;
+}
+.post-list-selected {
+  list-style-type: none;
+  font-size: 1em;
+  color: grey;
+}
+.related {
+  font-family: 'Cormorant Unicase', serif;
+  font-size: 2em;
+  font-weight: 700;
+}
+.category-box {
+  padding: 10px;
+  text-align: center;
+  margin-top: 15px;
+  border: solid 1px black;
+}
 .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight, .highlight .w {

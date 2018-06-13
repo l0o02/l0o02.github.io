@@ -10,10 +10,6 @@ image: http://www.fanghuomen.org/data/out/171/726453.jpg
 image-sm: http://www.fanghuomen.org/data/out/171/726453.jpg
 ---
 ## Selenium으로 진입한 웹 사이트 크롤링하기
-> [파이썬 크롤링 튜토리얼 - 1 : Beautiful Soup의 개념과 사용법](/2018/06/09/python-crawling-1/)<br>
-> [파이썬 크롤링 튜토리얼 - 2 : Beautiful Soup로 네이버 실시간 검색어 크롤링](/2018/06/10/python-crawling-2/)<br>
-> [파이썬 크롤링 튜토리얼 - 3 : Selenium 사용법과 이해](2018/06/12/python-crawling-selenium-1/)<br>
-> [파이썬 크롤링 튜토리얼 - 4 : Selenium을 이용해 페이스북에 로그인](/2018/06/12/python-crawling-selenium-2/)
 
 #### 1. Facebook Profile로 접속할 준비하기
 [파이썬 크롤링 튜토리얼 - 4](/2018/06/12/python-crawling-selenium-2/)에서 페이스북에 로그인 하는 방법을 알아봤었습니다.
