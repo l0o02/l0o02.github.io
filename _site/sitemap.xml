@@ -18,6 +18,22 @@
     </url>
   
     <url>
+      <loc>http://localhost:4000/2018/06/14/how-to-add-jekyll-related-post/</loc>
+      
+        <lastmod>2018-06-14T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>daily</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
       <loc>http://localhost:4000/2018/06/13/selenium-with-beautifulsoup-1/</loc>
       
         <lastmod>2018-06-13T00:00:00+09:00</lastmod>

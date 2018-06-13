@@ -5,8 +5,8 @@
     <description>Python, Django, React 등 이런저런 개발 그리고 잡다한 생각을 적을거에요.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 14 Jun 2018 04:44:28 +0900</pubDate>
-    <lastBuildDate>Thu, 14 Jun 2018 04:44:28 +0900</lastBuildDate>
+    <pubDate>Thu, 14 Jun 2018 05:14:36 +0900</pubDate>
+    <lastBuildDate>Thu, 14 Jun 2018 05:14:36 +0900</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
@@ -19,6 +19,30 @@
         
         
         <category>crawl</category>
+        
+      </item>
+    
+      <item>
+        <title>jekyll 포스트에 Related Post를 추가하는 방법</title>
+        <description>&lt;h2 id=&quot;같은-카테고리의-글-리스팅-하기&quot;&gt;같은 카테고리의 글 리스팅 하기&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;파이썬 강의를 따라하던 사람이 피드백을 해서 개발하게 됬습니다. 아직 디자인은 안했습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;_layoutsposthtml-수정하기&quot;&gt;_layouts/post.html 수정하기&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41375138-1de8ae52-6f90-11e8-81b2-9e9cd66589b3.png&quot; alt=&quot;image&quot; /&gt;
+post.html 중간 부분쯤을 보면 &lt;code class=&quot;highlighter-rouge&quot;&gt;content&lt;/code&gt; 가 보입니다. 이 content 부분이 지금 Jekyll에서 포스트를 쓰는 부분입니다. 위에 소스부분을 이 &lt;code class=&quot;highlighter-rouge&quot;&gt;content&lt;/code&gt; 위에 넣든 아래에 넣든 선택하면 됩니다. 구현하느라 조금 애좀 먹었습니다. 소스에 대한 질문이 있으면 언제든 댓글 남겨주시면 도와드리도록 하겠습니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;_sass_basescss-에서-디자인-정하기&quot;&gt;_sass/_base.scss 에서 디자인 정하기&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41375464-2c5d929e-6f91-11e8-9894-a7aa70797812.png&quot; alt=&quot;image&quot; /&gt;
+저는 이런식으로 CSS 코드를 작성했는데, 아직 미완성이라 깔끔하진 않네요. 마음대로 커스터마이징해서 추가하시면 됩니다.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 14 Jun 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018/06/14/how-to-add-jekyll-related-post/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/06/14/how-to-add-jekyll-related-post/</guid>
+        
+        
+        <category>jekyll</category>
         
       </item>
     
