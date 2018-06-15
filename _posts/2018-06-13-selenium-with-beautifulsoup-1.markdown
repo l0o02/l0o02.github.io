@@ -54,8 +54,7 @@ driver.find_elements_by_xpath XPath로 해당 elements 를 가져오는 겁니�
 {% highlight python %}
 req = driver.page_source
 {% endhighlight %}
-이렇게 req에 소스를 저장했으면 이 req가 HTML parser를 사용해야한다고 알려줘야합니다. [참고 : 파이썬 크롤링 튜토리얼 - 1](/2018/06/09/python-crawling-1/)
-우선 from bs4 import BeautifulSoup 를 해서 Beautiful Soup 를 코드의 맨 윗쪽에 import 해줍시다.
+이렇게 req에 소스를 저장했으면 이 req가 HTML parser를 사용해야한다고 알려줘야합니다. [참고 : 파이썬 크롤링 튜토리얼 - 1](/2018/06/09/python-crawling-1/). 그 전에 맨 윗쪽에 `from bs4 import BeautifulSoup` 를 해줘야겠죠?
 {% highlight python %}
 soup=BeautifulSoup(req, 'html.parser')
 {% endhighlight %}
