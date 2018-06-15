@@ -136,7 +136,8 @@
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">req</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">page_source</span></code></pre></figure>
 
-<p>이렇게 req에 소스를 저장했으면 이 req가 HTML parser를 사용해야한다고 알려줘야합니다. <a href="/2018/06/09/python-crawling-1/">참고 : 파이썬 크롤링 튜토리얼 - 1</a></p>
+<p>이렇게 req에 소스를 저장했으면 이 req가 HTML parser를 사용해야한다고 알려줘야합니다. <a href="/2018/06/09/python-crawling-1/">참고 : 파이썬 크롤링 튜토리얼 - 1</a>
+우선 from bs4 import BeautifulSoup 를 해서 Beautiful Soup 를 코드의 맨 윗쪽에 import 해줍시다.</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">soup</span><span class="o">=</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span></code></pre></figure>
 
@@ -205,6 +206,29 @@
 	<span class="k">print</span><span class="p">(</span><span class="n">information</span><span class="o">.</span><span class="n">text</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre></figure>
 
 
+      <div id="share-bar">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <div class="share-buttons">
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2018/06/13/selenium-with-beautifulsoup-1/"
+                onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+                title="Share on Facebook">
+                <i class="fa fa-facebook-official share-button"> facebook</i>
+            </a>
+    
+            <a  href="https://twitter.com/intent/tweet?text=파이썬 크롤링 튜토리얼 - 5 : Beautiful Soup와 Selenium을 함께 사용하는 방법&url=http://localhost:4000/2018/06/13/selenium-with-beautifulsoup-1/"
+                onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+                title="Share on Twitter">
+                <i class="fa fa-twitter share-button"> twitter</i>
+            </a>
+    
+            <a  href="https://plus.google.com/share?url=http://localhost:4000/2018/06/13/selenium-with-beautifulsoup-1/"
+                onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+                title="Share on Google+" >
+                <i class="fa fa-google-plus share-button"> google</i>
+            </a>
+        </div>
+    
+</div>
         <div class="category-box">
           <span class="related">RELATED POST</span>
           
@@ -247,6 +271,7 @@
             
           
         </div>
+        
       <div id="disqus_thread"></div>
       <script>
 

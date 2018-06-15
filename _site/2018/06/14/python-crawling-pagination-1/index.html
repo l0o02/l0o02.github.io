@@ -73,13 +73,13 @@
 
   <section class="section-padding bg-grey" itemprop="articleBody">
     <div class="post">
-      <h4 id="pagination-된-글-크롤링-하기">Pagination 된 글 크롤링 하기</h4>
+      <h2 id="pagination-된-글-크롤링-하기">Pagination 된 글 크롤링 하기</h2>
 <blockquote>
   <p>Pagination 이란, 여러 페이지에 일련의 관련 콘텐츠가 있음을 나타내는 페이지 번호 매김을 보여주는 것 입니다.
 페이지네이션 된 게시판에는 URL에 특정 규칙이 있습니다. page=1, number=1 등 페이지를 넘어갈 때 마다 바뀌는 숫자를 파악해야 합니다.</p>
 </blockquote>
 
-<h2 id="naver-뉴스-페이지-url-분석하기">Naver 뉴스 페이지 URL 분석하기</h2>
+<h4 id="naver-뉴스-페이지-url-분석하기">Naver 뉴스 페이지 URL 분석하기</h4>
 <p><img src="https://user-images.githubusercontent.com/39974109/41453346-5b646e9e-70b0-11e8-82b2-8c1f28041668.png" alt="image" />
 <a href="http://land.naver.com/news/field.nhn?page=1">네이버 부동산 뉴스 페이지</a>를 크롤링 하려고 합니다. 접속하여 URL 을 확인해보면 맨 뒤에 <code class="highlighter-rouge">page=숫자</code>가 보입니다.
 이는, Pagination 으로 현재 몇 번째 페이지를 보여주는지 알려줍니다.</p>
@@ -89,7 +89,7 @@
 <img src="https://user-images.githubusercontent.com/39974109/41454046-f9c525fe-70b2-11e8-8afe-a6dbd680a791.png" alt="image" />
 첫번째 페이지는 <code class="highlighter-rouge">NP=r:1</code>, 두번째 페이지는 <code class="highlighter-rouge">NP=r:2</code> 로 규칙적인 Class 를 가지고 있습니다. 그러면 이를 통해 어떻게 Pagination 의 최대값을 파악하는지 알아보도록 합시다.</p>
 
-<h2 id="python-코드-작성하기">Python 코드 작성하기</h2>
+<h4 id="python-코드-작성하기">Python 코드 작성하기</h4>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -184,6 +184,29 @@ maximum 변수의 값도 3 인게 확인이 됬습니다.</p>
 
 <p>코드에 오류가 있거나 질문이 있다면 댓글로 답변해드리도록 하겠습니다.</p>
 
+      <div id="share-bar">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <div class="share-buttons">
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2018/06/14/python-crawling-pagination-1/"
+                onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+                title="Share on Facebook">
+                <i class="fa fa-facebook-official share-button"> facebook</i>
+            </a>
+    
+            <a  href="https://twitter.com/intent/tweet?text=파이썬 크롤링 튜토리얼 - 6 : Pagination 된 게시판 크롤링&url=http://localhost:4000/2018/06/14/python-crawling-pagination-1/"
+                onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+                title="Share on Twitter">
+                <i class="fa fa-twitter share-button"> twitter</i>
+            </a>
+    
+            <a  href="https://plus.google.com/share?url=http://localhost:4000/2018/06/14/python-crawling-pagination-1/"
+                onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+                title="Share on Google+" >
+                <i class="fa fa-google-plus share-button"> google</i>
+            </a>
+        </div>
+    
+</div>
         <div class="category-box">
           <span class="related">RELATED POST</span>
           
@@ -226,6 +249,7 @@ maximum 변수의 값도 3 인게 확인이 됬습니다.</p>
             
           
         </div>
+        
       <div id="disqus_thread"></div>
       <script>
 

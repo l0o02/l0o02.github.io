@@ -5,19 +5,19 @@
     <description>Python, Django, React 등 이런저런 개발 그리고 잡다한 생각을 적을거에요.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 15 Jun 2018 16:38:27 +0900</pubDate>
-    <lastBuildDate>Fri, 15 Jun 2018 16:38:27 +0900</lastBuildDate>
+    <pubDate>Fri, 15 Jun 2018 20:08:40 +0900</pubDate>
+    <lastBuildDate>Fri, 15 Jun 2018 20:08:40 +0900</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
         <title>파이썬 크롤링 튜토리얼 - 6 : Pagination 된 게시판 크롤링</title>
-        <description>&lt;h4 id=&quot;pagination-된-글-크롤링-하기&quot;&gt;Pagination 된 글 크롤링 하기&lt;/h4&gt;
+        <description>&lt;h2 id=&quot;pagination-된-글-크롤링-하기&quot;&gt;Pagination 된 글 크롤링 하기&lt;/h2&gt;
 &lt;blockquote&gt;
   &lt;p&gt;Pagination 이란, 여러 페이지에 일련의 관련 콘텐츠가 있음을 나타내는 페이지 번호 매김을 보여주는 것 입니다.
 페이지네이션 된 게시판에는 URL에 특정 규칙이 있습니다. page=1, number=1 등 페이지를 넘어갈 때 마다 바뀌는 숫자를 파악해야 합니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;naver-뉴스-페이지-url-분석하기&quot;&gt;Naver 뉴스 페이지 URL 분석하기&lt;/h2&gt;
+&lt;h4 id=&quot;naver-뉴스-페이지-url-분석하기&quot;&gt;Naver 뉴스 페이지 URL 분석하기&lt;/h4&gt;
 &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41453346-5b646e9e-70b0-11e8-82b2-8c1f28041668.png&quot; alt=&quot;image&quot; /&gt;
 &lt;a href=&quot;http://land.naver.com/news/field.nhn?page=1&quot;&gt;네이버 부동산 뉴스 페이지&lt;/a&gt;를 크롤링 하려고 합니다. 접속하여 URL 을 확인해보면 맨 뒤에 &lt;code class=&quot;highlighter-rouge&quot;&gt;page=숫자&lt;/code&gt;가 보입니다.
 이는, Pagination 으로 현재 몇 번째 페이지를 보여주는지 알려줍니다.&lt;/p&gt;
@@ -27,7 +27,7 @@
 &lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41454046-f9c525fe-70b2-11e8-8afe-a6dbd680a791.png&quot; alt=&quot;image&quot; /&gt;
 첫번째 페이지는 &lt;code class=&quot;highlighter-rouge&quot;&gt;NP=r:1&lt;/code&gt;, 두번째 페이지는 &lt;code class=&quot;highlighter-rouge&quot;&gt;NP=r:2&lt;/code&gt; 로 규칙적인 Class 를 가지고 있습니다. 그러면 이를 통해 어떻게 Pagination 의 최대값을 파악하는지 알아보도록 합시다.&lt;/p&gt;
 
-&lt;h2 id=&quot;python-코드-작성하기&quot;&gt;Python 코드 작성하기&lt;/h2&gt;
+&lt;h4 id=&quot;python-코드-작성하기&quot;&gt;Python 코드 작성하기&lt;/h4&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bs4&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
@@ -220,7 +220,8 @@ post.html 중간 부분쯤을 보면 &lt;code class=&quot;highlighter-rouge&quot
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page_source&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;이렇게 req에 소스를 저장했으면 이 req가 HTML parser를 사용해야한다고 알려줘야합니다. &lt;a href=&quot;/2018/06/09/python-crawling-1/&quot;&gt;참고 : 파이썬 크롤링 튜토리얼 - 1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 req에 소스를 저장했으면 이 req가 HTML parser를 사용해야한다고 알려줘야합니다. &lt;a href=&quot;/2018/06/09/python-crawling-1/&quot;&gt;참고 : 파이썬 크롤링 튜토리얼 - 1&lt;/a&gt;
+우선 from bs4 import BeautifulSoup 를 해서 Beautiful Soup 를 코드의 맨 윗쪽에 import 해줍시다.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'html.parser'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 

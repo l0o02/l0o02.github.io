@@ -25,6 +25,7 @@ layout: default
   <section class="section-padding bg-grey" itemprop="articleBody">
     <div class="post">
       {{ content }}
+      {% include share-bar.html %}
         <div class="category-box">
           <span class="related">RELATED POST</span>
           {% for category in page.categories %}
@@ -39,6 +40,7 @@ layout: default
             {% endfor %}
           {% endfor %}
         </div>
+        
       <div id="disqus_thread"></div>
       <script>
 
