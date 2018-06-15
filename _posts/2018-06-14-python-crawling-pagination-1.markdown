@@ -10,7 +10,7 @@ image: https://cdn.dribbble.com/users/141880/screenshots/2513164/dailyui-085.gif
 image-sm: https://cdn.dribbble.com/users/141880/screenshots/2513164/dailyui-085.gif
 ---
 #### Pagination 된 글 크롤링 하기
-> Paginatino 이란, 여러 페이지에 일련의 관련 콘텐츠가 있음을 나타내는 페이지 번호 매김을 보여주는 것 입니다.
+> Pagination 이란, 여러 페이지에 일련의 관련 콘텐츠가 있음을 나타내는 페이지 번호 매김을 보여주는 것 입니다.
 > 페이지네이션 된 게시판에는 URL에 특정 규칙이 있습니다. page=1, number=1 등 페이지를 넘어갈 때 마다 바뀌는 숫자를 파악해야 합니다.
 
 ## Naver 뉴스 페이지 URL 분석하기
