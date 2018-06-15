@@ -9,11 +9,11 @@ description: 웹 사이트에 페이지네이션 된 게시판 글을 크롤링�
 image: https://cdn.dribbble.com/users/141880/screenshots/2513164/dailyui-085.gif
 image-sm: https://cdn.dribbble.com/users/141880/screenshots/2513164/dailyui-085.gif
 ---
-#### Pagination 된 글 크롤링 하기
+## Pagination 된 글 크롤링 하기
 > Pagination 이란, 여러 페이지에 일련의 관련 콘텐츠가 있음을 나타내는 페이지 번호 매김을 보여주는 것 입니다.
 > 페이지네이션 된 게시판에는 URL에 특정 규칙이 있습니다. page=1, number=1 등 페이지를 넘어갈 때 마다 바뀌는 숫자를 파악해야 합니다.
 
-## Naver 뉴스 페이지 URL 분석하기
+#### Naver 뉴스 페이지 URL 분석하기
 ![image](https://user-images.githubusercontent.com/39974109/41453346-5b646e9e-70b0-11e8-82b2-8c1f28041668.png)
 [네이버 부동산 뉴스 페이지](http://land.naver.com/news/field.nhn?page=1)를 크롤링 하려고 합니다. 접속하여 URL 을 확인해보면 맨 뒤에 `page=숫자`가 보입니다.
 이는, Pagination 으로 현재 몇 번째 페이지를 보여주는지 알려줍니다.
@@ -23,7 +23,7 @@ image-sm: https://cdn.dribbble.com/users/141880/screenshots/2513164/dailyui-085.
 ![image](https://user-images.githubusercontent.com/39974109/41454046-f9c525fe-70b2-11e8-8afe-a6dbd680a791.png)
 첫번째 페이지는 `NP=r:1`, 두번째 페이지는 `NP=r:2` 로 규칙적인 Class 를 가지고 있습니다. 그러면 이를 통해 어떻게 Pagination 의 최대값을 파악하는지 알아보도록 합시다.
 
-## Python 코드 작성하기
+#### Python 코드 작성하기
 {% highlight python %}
 from bs4 import BeautifulSoup
 import requests
