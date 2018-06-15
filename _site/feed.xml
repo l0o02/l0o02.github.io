@@ -5,8 +5,8 @@
     <description>Python, Django, React 등 이런저런 개발 그리고 잡다한 생각을 적을거에요.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 15 Jun 2018 23:23:11 +0900</pubDate>
-    <lastBuildDate>Fri, 15 Jun 2018 23:23:11 +0900</lastBuildDate>
+    <pubDate>Sat, 16 Jun 2018 00:18:45 +0900</pubDate>
+    <lastBuildDate>Sat, 16 Jun 2018 00:18:45 +0900</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
@@ -110,15 +110,15 @@ maximum 변수의 값도 3 인게 확인이 됬습니다.&lt;/p&gt;
 첫번째 페이지의 첫번째 뉴스 제목은 ‘송파구 매매 … ‘ 입니다.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41455772-480b7a3c-70b9-11e8-8f2d-afae65d94e1b.png&quot; alt=&quot;image&quot; /&gt;
-첫번째 페이지의 마지막 뉴스 제목은 ‘입주 시작했는데 …’ 입니다.&lt;/p&gt;
+세번째 페이지의 마지막 뉴스 제목은 ‘입주 시작했는데 …’ 입니다.&lt;/p&gt;
 
 &lt;p&gt;그럼 파이썬 파일을 실행해서 비교해 보겠습니다.&lt;/p&gt;
 &lt;center&gt;
 &lt;script src=&quot;https://asciinema.org/a/JfjWlT86TRHXdeATGmAGmeO0h.js&quot; id=&quot;asciicast-JfjWlT86TRHXdeATGmAGmeO0h&quot; async=&quot;&quot;&gt;&lt;/script&gt;
 &lt;/center&gt;
-&lt;p&gt;첫번째 크롤링 된 뉴스 제목과 3번째 페이지에있는 마지막 뉴스 제목까지 전부 크롤링 된게 확인됩니다.&lt;/p&gt;
+&lt;p&gt;첫번째 크롤링 된 뉴스 제목과 세번째 페이지에있는 마지막 뉴스 제목까지 전부 크롤링 된게 확인됩니다.&lt;/p&gt;
 
-&lt;p&gt;완성했습니다. 다른 게시판 크롤링도 비슷한 구조로 가능합니다. 몇몇 사이트들은 Selenium을 사용해야 됩니다.&lt;/p&gt;
+&lt;p&gt;완성했습니다. 다른 게시판들도 비슷한 구조로 크롤링이 가능합니다. 그리고 몇몇 사이트들은 Selenium을 사용해야 됩니다.&lt;/p&gt;
 
 &lt;p&gt;코드에 오류가 있거나 질문이 있다면 댓글로 답변해드리도록 하겠습니다.&lt;/p&gt;
 </description>
