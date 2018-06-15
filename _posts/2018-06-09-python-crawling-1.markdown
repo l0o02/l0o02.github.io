@@ -24,7 +24,7 @@ Beautiful Soup를 설치하기 위해 아래 명령어를 입력합니다.
 {% highlight sh %}touch crawler1.py{% endhighlight %}
 
 그리고 파일 안에 아래 코드를 입력합니다.
-{% highlight python %}
+{% highlight python linenos %}
 from bs4 import BeautifulSoup
 html_doc = """
 <html><head><title>The Dormouse's story</title></head>
