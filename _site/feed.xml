@@ -5,15 +5,15 @@
     <description>Python, Django, React 등 이런저런 개발 그리고 잡다한 생각을 적을거에요.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 15 Jun 2018 16:35:52 +0900</pubDate>
-    <lastBuildDate>Fri, 15 Jun 2018 16:35:52 +0900</lastBuildDate>
+    <pubDate>Fri, 15 Jun 2018 16:38:27 +0900</pubDate>
+    <lastBuildDate>Fri, 15 Jun 2018 16:38:27 +0900</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
         <title>파이썬 크롤링 튜토리얼 - 6 : Pagination 된 게시판 크롤링</title>
         <description>&lt;h4 id=&quot;pagination-된-글-크롤링-하기&quot;&gt;Pagination 된 글 크롤링 하기&lt;/h4&gt;
 &lt;blockquote&gt;
-  &lt;p&gt;Paginatino 이란, 여러 페이지에 일련의 관련 콘텐츠가 있음을 나타내는 페이지 번호 매김을 보여주는 것 입니다.
+  &lt;p&gt;Pagination 이란, 여러 페이지에 일련의 관련 콘텐츠가 있음을 나타내는 페이지 번호 매김을 보여주는 것 입니다.
 페이지네이션 된 게시판에는 URL에 특정 규칙이 있습니다. page=1, number=1 등 페이지를 넘어갈 때 마다 바뀌는 숫자를 파악해야 합니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -99,10 +99,10 @@ maximum 변수의 값도 3 인게 확인이 됬습니다.&lt;/p&gt;
 	&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;sup style=&quot;color: #878787;&quot;&gt;&lt;br /&gt;
-1: whole_source 는 크롤링할 모든 페이지의 HTML 소스를 전부 저장할 변수입니다. 즉, http://land….page=1 부터 http://land….page=3 의 HTML 소스를 저장합니다.
-2: range 함수는 숫자리스트를 만들어줍니다. range(1, maximum+1) 을 함으로써 1부터 maximum 까지의 숫자 리스트가 생성됩니다. 그리고 page_number 은 1부터 더해지면서 maximum 이 될때까지 for 문을 실행하게 됩니다. maximum+1로 해준 이유는 range 는 첫번째 인자 값 1부터, 두번째 인자 값 &lt;code class=&quot;highlighter-rouge&quot;&gt;미만&lt;/code&gt;까지 실행되기 때문입니다.
-5: HTML 소스를 whole_source 에 전부 넣습니다. 그러면 whole_source는 최종적으로 3개의 HTML 소스를 더한게 됩니다.
-7: 뉴스의 제목 선택자를 찾아서 soup.select 했습니다. find_title 은 모든 뉴스의 제목을 가진 list가 됬습니다.
+1: whole_source 는 크롤링할 모든 페이지의 HTML 소스를 전부 저장할 변수입니다. 즉, http://land….page=1 부터 http://land….page=3 의 HTML 소스를 저장합니다.&lt;br /&gt;
+2: range 함수는 숫자리스트를 만들어줍니다. range(1, maximum+1) 을 함으로써 1부터 maximum 까지의 숫자 리스트가 생성됩니다. 그리고 page_number 은 1부터 더해지면서 maximum 이 될때까지 for 문을 실행하게 됩니다. maximum+1로 해준 이유는 range 는 첫번째 인자 값 1부터, 두번째 인자 값 &lt;code class=&quot;highlighter-rouge&quot;&gt;미만&lt;/code&gt;까지 실행되기 때문입니다.&lt;br /&gt;
+5: HTML 소스를 whole_source 에 전부 넣습니다. 그러면 whole_source는 최종적으로 3개의 HTML 소스를 더한게 됩니다.&lt;br /&gt;
+7: 뉴스의 제목 선택자를 찾아서 soup.select 했습니다. find_title 은 모든 뉴스의 제목을 가진 list가 됬습니다.&lt;br /&gt;
 9: for 문으로 뉴스 제목들을 출력합니다.
 &lt;/sup&gt;&lt;/p&gt;
 

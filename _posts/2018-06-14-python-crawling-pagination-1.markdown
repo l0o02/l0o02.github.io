@@ -78,10 +78,10 @@ for title in find_title:
 	print(title.text)
 {% endhighlight %}
 <sup style="color: #878787;"><br>
-1: whole_source 는 크롤링할 모든 페이지의 HTML 소스를 전부 저장할 변수입니다. 즉, http://land....page=1 부터 http://land....page=3 의 HTML 소스를 저장합니다.
-2: range 함수는 숫자리스트를 만들어줍니다. range(1, maximum+1) 을 함으로써 1부터 maximum 까지의 숫자 리스트가 생성됩니다. 그리고 page_number 은 1부터 더해지면서 maximum 이 될때까지 for 문을 실행하게 됩니다. maximum+1로 해준 이유는 range 는 첫번째 인자 값 1부터, 두번째 인자 값 `미만`까지 실행되기 때문입니다.
-5: HTML 소스를 whole_source 에 전부 넣습니다. 그러면 whole_source는 최종적으로 3개의 HTML 소스를 더한게 됩니다.
-7: 뉴스의 제목 선택자를 찾아서 soup.select 했습니다. find_title 은 모든 뉴스의 제목을 가진 list가 됬습니다.
+1: whole_source 는 크롤링할 모든 페이지의 HTML 소스를 전부 저장할 변수입니다. 즉, http://land....page=1 부터 http://land....page=3 의 HTML 소스를 저장합니다.<br>
+2: range 함수는 숫자리스트를 만들어줍니다. range(1, maximum+1) 을 함으로써 1부터 maximum 까지의 숫자 리스트가 생성됩니다. 그리고 page_number 은 1부터 더해지면서 maximum 이 될때까지 for 문을 실행하게 됩니다. maximum+1로 해준 이유는 range 는 첫번째 인자 값 1부터, 두번째 인자 값 `미만`까지 실행되기 때문입니다.<br>
+5: HTML 소스를 whole_source 에 전부 넣습니다. 그러면 whole_source는 최종적으로 3개의 HTML 소스를 더한게 됩니다.<br>
+7: 뉴스의 제목 선택자를 찾아서 soup.select 했습니다. find_title 은 모든 뉴스의 제목을 가진 list가 됬습니다.<br>
 9: for 문으로 뉴스 제목들을 출력합니다.
 </sup>
 
