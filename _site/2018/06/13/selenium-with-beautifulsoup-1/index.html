@@ -136,8 +136,7 @@
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">req</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">page_source</span></code></pre></figure>
 
-<p>이렇게 req에 소스를 저장했으면 이 req가 HTML parser를 사용해야한다고 알려줘야합니다. <a href="/2018/06/09/python-crawling-1/">참고 : 파이썬 크롤링 튜토리얼 - 1</a>
-우선 from bs4 import BeautifulSoup 를 해서 Beautiful Soup 를 코드의 맨 윗쪽에 import 해줍시다.</p>
+<p>이렇게 req에 소스를 저장했으면 이 req가 HTML parser를 사용해야한다고 알려줘야합니다. <a href="/2018/06/09/python-crawling-1/">참고 : 파이썬 크롤링 튜토리얼 - 1</a>. 그 전에 맨 윗쪽에 <code class="highlighter-rouge">from bs4 import BeautifulSoup</code> 를 해줘야겠죠?</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">soup</span><span class="o">=</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span></code></pre></figure>
 

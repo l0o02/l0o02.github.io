@@ -86,15 +86,15 @@ for title in find_title:
 </sup>
 
 ![image](https://user-images.githubusercontent.com/39974109/41455768-450d2060-70b9-11e8-8f56-7a06d05a5fc6.png)
-첫번째 뉴스 제목은 '송파구 매매 ... ' 입니다. 
+첫번째 페이지의 첫번째 뉴스 제목은 '송파구 매매 ... ' 입니다. 
 
 ![image](https://user-images.githubusercontent.com/39974109/41455772-480b7a3c-70b9-11e8-8f2d-afae65d94e1b.png)
-마지막 뉴스 제목은 '입주 시작했는데 ...' 입니다.
+첫번째 페이지의 마지막 뉴스 제목은 '입주 시작했는데 ...' 입니다.
 
 그럼 파이썬 파일을 실행해서 비교해 보겠습니다.
-
-![image](https://user-images.githubusercontent.com/39974109/41455856-9491d0c2-70b9-11e8-9b6b-799b957b8ae7.png)
-![image](https://user-images.githubusercontent.com/39974109/41455866-9c260e70-70b9-11e8-8c9d-3718cda78d33.png)
+<center>
+<script src="https://asciinema.org/a/JfjWlT86TRHXdeATGmAGmeO0h.js" id="asciicast-JfjWlT86TRHXdeATGmAGmeO0h" async></script>
+</center>
 첫번째 크롤링 된 뉴스 제목과 3번째 페이지에있는 마지막 뉴스 제목까지 전부 크롤링 된게 확인됩니다.
 
 완성했습니다. 다른 게시판 크롤링도 비슷한 구조로 가능합니다. 몇몇 사이트들은 Selenium을 사용해야 됩니다. 

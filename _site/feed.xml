@@ -5,8 +5,8 @@
     <description>Python, Django, React 등 이런저런 개발 그리고 잡다한 생각을 적을거에요.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 15 Jun 2018 20:08:40 +0900</pubDate>
-    <lastBuildDate>Fri, 15 Jun 2018 20:08:40 +0900</lastBuildDate>
+    <pubDate>Fri, 15 Jun 2018 23:23:11 +0900</pubDate>
+    <lastBuildDate>Fri, 15 Jun 2018 23:23:11 +0900</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
@@ -107,16 +107,16 @@ maximum 변수의 값도 3 인게 확인이 됬습니다.&lt;/p&gt;
 &lt;/sup&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41455768-450d2060-70b9-11e8-8f56-7a06d05a5fc6.png&quot; alt=&quot;image&quot; /&gt;
-첫번째 뉴스 제목은 ‘송파구 매매 … ‘ 입니다.&lt;/p&gt;
+첫번째 페이지의 첫번째 뉴스 제목은 ‘송파구 매매 … ‘ 입니다.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41455772-480b7a3c-70b9-11e8-8f2d-afae65d94e1b.png&quot; alt=&quot;image&quot; /&gt;
-마지막 뉴스 제목은 ‘입주 시작했는데 …’ 입니다.&lt;/p&gt;
+첫번째 페이지의 마지막 뉴스 제목은 ‘입주 시작했는데 …’ 입니다.&lt;/p&gt;
 
 &lt;p&gt;그럼 파이썬 파일을 실행해서 비교해 보겠습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41455856-9491d0c2-70b9-11e8-9b6b-799b957b8ae7.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41455866-9c260e70-70b9-11e8-8c9d-3718cda78d33.png&quot; alt=&quot;image&quot; /&gt;
-첫번째 크롤링 된 뉴스 제목과 3번째 페이지에있는 마지막 뉴스 제목까지 전부 크롤링 된게 확인됩니다.&lt;/p&gt;
+&lt;center&gt;
+&lt;script src=&quot;https://asciinema.org/a/JfjWlT86TRHXdeATGmAGmeO0h.js&quot; id=&quot;asciicast-JfjWlT86TRHXdeATGmAGmeO0h&quot; async=&quot;&quot;&gt;&lt;/script&gt;
+&lt;/center&gt;
+&lt;p&gt;첫번째 크롤링 된 뉴스 제목과 3번째 페이지에있는 마지막 뉴스 제목까지 전부 크롤링 된게 확인됩니다.&lt;/p&gt;
 
 &lt;p&gt;완성했습니다. 다른 게시판 크롤링도 비슷한 구조로 가능합니다. 몇몇 사이트들은 Selenium을 사용해야 됩니다.&lt;/p&gt;
 
@@ -220,8 +220,7 @@ post.html 중간 부분쯤을 보면 &lt;code class=&quot;highlighter-rouge&quot
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page_source&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;이렇게 req에 소스를 저장했으면 이 req가 HTML parser를 사용해야한다고 알려줘야합니다. &lt;a href=&quot;/2018/06/09/python-crawling-1/&quot;&gt;참고 : 파이썬 크롤링 튜토리얼 - 1&lt;/a&gt;
-우선 from bs4 import BeautifulSoup 를 해서 Beautiful Soup 를 코드의 맨 윗쪽에 import 해줍시다.&lt;/p&gt;
+&lt;p&gt;이렇게 req에 소스를 저장했으면 이 req가 HTML parser를 사용해야한다고 알려줘야합니다. &lt;a href=&quot;/2018/06/09/python-crawling-1/&quot;&gt;참고 : 파이썬 크롤링 튜토리얼 - 1&lt;/a&gt;. 그 전에 맨 윗쪽에 &lt;code class=&quot;highlighter-rouge&quot;&gt;from bs4 import BeautifulSoup&lt;/code&gt; 를 해줘야겠죠?&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'html.parser'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
@@ -632,7 +631,24 @@ Beautiful Soup를 설치하기 위해 아래 명령어를 입력합니다.&lt;/p
 
 &lt;p&gt;그리고 파일 안에 아래 코드를 입력합니다.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bs4&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bs4&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;html_doc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
 &amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;The Dormouse's story&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;
 &amp;lt;body&amp;gt;
@@ -648,7 +664,7 @@ and they lived at the bottom of a well.&amp;lt;/p&amp;gt;
 &quot;&quot;&quot;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html_doc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'html.parser'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prettify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prettify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;sup style=&quot;color: #878787;&quot;&gt;
  1: bs4 라이브러리에서 Beautiful Soup를 import 시킴&lt;br /&gt;
