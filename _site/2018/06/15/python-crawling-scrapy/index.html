@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>파이썬 크롤링 튜토리얼 - 7 : Scrapy 란? Scrapy VS Beautiful Soup | 개발새발 블로그</title>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-2563278096701182",
+      enable_page_level_ads: true
+    });
+  </script>
+  <meta name="author" content="dohyun">
+  <meta name="description" content="Scrapy 와 Beautiful Soup 의 장단점에 대한 이야기">
+  <meta property="og:title" content="파이썬 크롤링 튜토리얼 - 7 : Scrapy 란? Scrapy VS Beautiful Soup | 개발새발 블로그">
+  <meta property="og:url" content="http://localhost:4000/2018/06/15/python-crawling-scrapy/">
+  <meta property="og:site_name" content="개발새발 블로그">
+  <meta property="og:description" content="Scrapy 와 Beautiful Soup 의 장단점에 대한 이야기">
+  <meta property="og:image" content="https://hakan.io/assets/img/python-scrapy.jpg">
+  <meta property="og:type" content="blog">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:description" content="Scrapy 와 Beautiful Soup 의 장단점에 대한 이야기">
+  <meta name="twitter:title" content="파이썬 크롤링 튜토리얼 - 7 : Scrapy 란? Scrapy VS Beautiful Soup | 개발새발 블로그">
+  <meta name="twitter:url" content="http://localhost:4000/2018/06/15/python-crawling-scrapy/">
+  <meta name="twitter:site" content="개발새발 블로그">
+  <meta name="twitter:creator" content="@DirtyBackend">
+  <meta name="twitter:domain" content="http://localhost:4000">
+  <meta property="twitter:image" content="https://hakan.io/assets/img/python-scrapy.jpg">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Lora|Space+Mono:700">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/icon/favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <link rel="alternate" type="application/rss+xml" title="개발새발 블로그" href="http://localhost:4000/feed.xml">
+  <link rel="canonical" href="http://localhost:4000/2018/06/15/python-crawling-scrapy/">
+  
+  
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-120591017-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  
+</head>
+
+
+  <body>
+
+    <main>
+      <article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="section-padding--lg mast rellax" data-rellax-speed="-4">
+    <a class="nav nav--white" href="/">
+      <i class="fa fa-lg fa-arrow-left"></i>
+      <span>Back to Posts</span>
+    </a>
+    <figure class="absolute-bg mast__img" style="background-image: url('https://hakan.io/assets/img/python-scrapy.jpg');"></figure>
+    <div class="mast__container">
+      <span><time datetime="2018-06-15T00:00:00+09:00" itemprop="datePublished">Jun 15, 2018</time></span>
+      <h1 itemprop="name headline">파이썬 크롤링 튜토리얼 - 7 : Scrapy 란? Scrapy VS Beautiful Soup</h1>
+      
+        <span>Posted in 
+          
+            <a class="nav--white" href="/category/crawl">crawl</a>
+          
+        </span>
+      
+      <span></span>
+    </div>
+  </header>
+
+  <section class="section-padding bg-grey" itemprop="articleBody">
+    <div class="post">
+      <h2 id="scrapy-vs-beautiful-soup">Scrapy VS Beautiful Soup</h2>
+<blockquote>
+  <p>이전까지 튜토리얼로 배워왔던 Beautiful Soup 와 생소한 Scrapy 의 장단점을 정리해보려고 합니다.</p>
+</blockquote>
+
+<h4 id="beautiful-soup-란">Beautiful Soup 란?</h4>
+<p><code class="highlighter-rouge">Beautiful Soup</code>는 웹 상의 가치있는 정보를 빠르게 크롤링 하기위한 도구입니다. 진입 장벽이 매우 낮고 간결해서, 입문 개발자에게 안성맞춤입니다. 그리고
+이 라이브러리는, 스스로 웹 사이트를 크롤링 할 수 없습니다. <code class="highlighter-rouge">urlib2</code> 와 <code class="highlighter-rouge">requests</code>로 HTML 소스를 가져와야만 합니다.</p>
+
+<h4 id="scrapy-란">Scrapy 란?</h4>
+<p>Scrapy 는 파이썬으로 작성되었으며, <code class="highlighter-rouge">spider</code>를 작성해서 크롤링을 합니다. Scrapy 에서는 직접 <code class="highlighter-rouge">Beautiful Soup</code> 나 <code class="highlighter-rouge">lxml</code>을 사용할 수 있습니다. 하지만 Beautiful Soup 에서는 지원하지 않는 <code class="highlighter-rouge">XPath</code>를 Scrapy에서는 사용할 수 있습니다. XPath 를 사용함으로써 복잡한 HTML소스를 쉽게 크롤링 할 수 있게 해줍니다.</p>
+
+<h4 id="어떤게-더-좋을까">어떤게 더 좋을까?</h4>
+<p><code class="highlighter-rouge">Beautiful Soup</code>는 오로지 HTML을 파싱하고 데이터를 크롤링하는데에만 쓰입니다. 반면에 <code class="highlighter-rouge">Scrapy</code>는 HTML을 다운로드하고 데이터에 접근하여 저장합니다. 만약 이 두가지중에 선택해야 한다면, 많은 요소들을 고민해야 합니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Framework</th>
+      <th>Beautiful Soup</th>
+      <th>Scrapy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>진입장벽</td>
+      <td>매우 쉽다.</td>
+      <td>난해하다, 하지만 <a href="https://doc.scrapy.org/en/1.5/intro/tutorial.html">Scrapy 문서</a>를 참고해서 따라해보면 생각보다는 괜찮다.</td>
+    </tr>
+    <tr>
+      <td>자료량</td>
+      <td>많이 부족한 편이다.</td>
+      <td>매우 많은 프로젝트와 플러그인이 존재한다. Stack OverFlow 에도 많은 케이스가 존재한다.</td>
+    </tr>
+    <tr>
+      <td>확장성</td>
+      <td>확장하기가 쉽지는 않다.</td>
+      <td>쉽게 middleware 를 커스터마이징 할 수 있다. 유지가 쉬운 편이다.</td>
+    </tr>
+    <tr>
+      <td>퍼포먼스</td>
+      <td><code class="highlighter-rouge">multiprocessing</code>을 하면 매우 빠르다.</td>
+      <td>괜찮은 편이다. 웹 페이지를 짧은 시간내에 크롤링할 수 있다. 잦은 경우로 download_delay 를 설정해줘야 spider가 정지당하는 경우를 피할 수 있다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>가볍고 빠른 Beautiful Soup 와 자료가 방대하고 유연한 Scrapy 를 상황에 맞게 잘 골라 쓰면 되겠습니다.</p>
+
+      <div id="share-bar">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <div class="share-buttons">
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2018/06/15/python-crawling-scrapy/"
+                onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+                title="Share on Facebook">
+                <i class="fa fa-facebook-official share-button"> facebook</i>
+            </a>
+    
+            <a  href="https://twitter.com/intent/tweet?text=파이썬 크롤링 튜토리얼 - 7 : Scrapy 란? Scrapy VS Beautiful Soup&url=http://localhost:4000/2018/06/15/python-crawling-scrapy/"
+                onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+                title="Share on Twitter">
+                <i class="fa fa-twitter share-button"> twitter</i>
+            </a>
+    
+            <a  href="https://plus.google.com/share?url=http://localhost:4000/2018/06/15/python-crawling-scrapy/"
+                onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+                title="Share on Google+" >
+                <i class="fa fa-google-plus share-button"> google</i>
+            </a>
+
+            <a  href="https://www.buymeacoffee.com/vWEIGz71S"
+                onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+                title="Buy me a coffee" >
+                <i class="fa fas fa-coffee share-button"> buy me a coffee</i>
+            </a>
+        </div>
+    
+</div>
+      <div class="category-box">
+        <span class="related">RELATED POST</span>
+        
+          
+
+              
+                <li class="post-list"><a href="/2018/06/09/python-crawling-1/">- 파이썬 크롤링 튜토리얼 - 1 : Beautiful Soup의 개념과 사용법</a></li>
+              
+            
+          
+
+              
+                <li class="post-list"><a href="/2018/06/10/python-crawling-2/">- 파이썬 크롤링 튜토리얼 - 2 : Beautiful Soup로 네이버 실시간 검색어 크롤링</a></li>
+              
+            
+          
+
+              
+                <li class="post-list"><a href="/2018/06/12/python-crawling-selenium-1/">- 파이썬 크롤링 튜토리얼 - 3 : Selenium 사용법과 이해</a></li>
+              
+            
+          
+
+              
+                <li class="post-list"><a href="/2018/06/12/python-crawling-selenium-2/">- 파이썬 크롤링 튜토리얼 - 4 : Selenium을 이용해 페이스북에 로그인</a></li>
+              
+            
+          
+
+              
+                <li class="post-list"><a href="/2018/06/13/selenium-with-beautifulsoup-1/">- 파이썬 크롤링 튜토리얼 - 5 : Beautiful Soup와 Selenium을 함께 사용하는 방법</a></li>
+              
+            
+          
+
+              
+                <li class="post-list"><a href="/2018/06/14/python-crawling-pagination-1/">- 파이썬 크롤링 튜토리얼 - 6 : Pagination 된 게시판 크롤링</a></li>
+              
+            
+          
+
+              
+                <li class="post-list-selected">- 파이썬 크롤링 튜토리얼 - 7 : Scrapy 란? Scrapy VS Beautiful Soup</li>
+              
+            
+          
+        
+</div>
+      <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://l0o02-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+</article>
+
+
+
+    </main>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script type="text/javascript" src="/assets/js/app.js"></script>
+<div id="breadcrumbs" style="display:none;">
+        
+        <a href="/">Home</a>
+        
+          
+            / <a href="/2018/">2018</a>
+          
+        
+          
+            / <a href="/2018/06/">06</a>
+          
+        
+          
+            / <a href="/2018/06/15/">15</a>
+          
+        
+          
+            / Python crawling scrapy
+          
+        
+</div>
+
+  </body>
+
+</html>

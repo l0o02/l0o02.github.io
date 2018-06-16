@@ -129,6 +129,7 @@ blockquote {
   background: #f9f9f9;
   border-left: 10px solid #ccc;
   font-size: 75%;
+  font-style: italic;
   color: #adadad;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
@@ -145,7 +146,30 @@ blockquote:before {
 blockquote p {
   display: inline;
 }
-
+table {
+  padding: 0; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
 cite {
   display: block;
   margin-top: 0.125em;
@@ -176,6 +200,7 @@ ol, ul {
 /* 커스텀 테마 */
 .highlighter-rouge{
   background-color: #f2e4c1;
+  font-style: italic;
 }
 .post-list {
   list-style-type: none;

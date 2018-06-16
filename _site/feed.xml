@@ -5,9 +5,69 @@
     <description>Python, Django, React 등 이런저런 개발 그리고 잡다한 생각을 적을거에요.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 16 Jun 2018 08:45:09 +0900</pubDate>
-    <lastBuildDate>Sat, 16 Jun 2018 08:45:09 +0900</lastBuildDate>
+    <pubDate>Sat, 16 Jun 2018 11:12:18 +0900</pubDate>
+    <lastBuildDate>Sat, 16 Jun 2018 11:12:18 +0900</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
+    
+      <item>
+        <title>파이썬 크롤링 튜토리얼 - 7 : Scrapy 란? Scrapy VS Beautiful Soup</title>
+        <description>&lt;h2 id=&quot;scrapy-vs-beautiful-soup&quot;&gt;Scrapy VS Beautiful Soup&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;이전까지 튜토리얼로 배워왔던 Beautiful Soup 와 생소한 Scrapy 의 장단점을 정리해보려고 합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;beautiful-soup-란&quot;&gt;Beautiful Soup 란?&lt;/h4&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Beautiful Soup&lt;/code&gt;는 웹 상의 가치있는 정보를 빠르게 크롤링 하기위한 도구입니다. 진입 장벽이 매우 낮고 간결해서, 입문 개발자에게 안성맞춤입니다. 그리고
+이 라이브러리는, 스스로 웹 사이트를 크롤링 할 수 없습니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;urlib2&lt;/code&gt; 와 &lt;code class=&quot;highlighter-rouge&quot;&gt;requests&lt;/code&gt;로 HTML 소스를 가져와야만 합니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;scrapy-란&quot;&gt;Scrapy 란?&lt;/h4&gt;
+&lt;p&gt;Scrapy 는 파이썬으로 작성되었으며, &lt;code class=&quot;highlighter-rouge&quot;&gt;spider&lt;/code&gt;를 작성해서 크롤링을 합니다. Scrapy 에서는 직접 &lt;code class=&quot;highlighter-rouge&quot;&gt;Beautiful Soup&lt;/code&gt; 나 &lt;code class=&quot;highlighter-rouge&quot;&gt;lxml&lt;/code&gt;을 사용할 수 있습니다. 하지만 Beautiful Soup 에서는 지원하지 않는 &lt;code class=&quot;highlighter-rouge&quot;&gt;XPath&lt;/code&gt;를 Scrapy에서는 사용할 수 있습니다. XPath 를 사용함으로써 복잡한 HTML소스를 쉽게 크롤링 할 수 있게 해줍니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;어떤게-더-좋을까&quot;&gt;어떤게 더 좋을까?&lt;/h4&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Beautiful Soup&lt;/code&gt;는 오로지 HTML을 파싱하고 데이터를 크롤링하는데에만 쓰입니다. 반면에 &lt;code class=&quot;highlighter-rouge&quot;&gt;Scrapy&lt;/code&gt;는 HTML을 다운로드하고 데이터에 접근하여 저장합니다. 만약 이 두가지중에 선택해야 한다면, 많은 요소들을 고민해야 합니다.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Framework&lt;/th&gt;
+      &lt;th&gt;Beautiful Soup&lt;/th&gt;
+      &lt;th&gt;Scrapy&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;진입장벽&lt;/td&gt;
+      &lt;td&gt;매우 쉽다.&lt;/td&gt;
+      &lt;td&gt;난해하다, 하지만 &lt;a href=&quot;https://doc.scrapy.org/en/1.5/intro/tutorial.html&quot;&gt;Scrapy 문서&lt;/a&gt;를 참고해서 따라해보면 생각보다는 괜찮다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;자료량&lt;/td&gt;
+      &lt;td&gt;많이 부족한 편이다.&lt;/td&gt;
+      &lt;td&gt;매우 많은 프로젝트와 플러그인이 존재한다. Stack OverFlow 에도 많은 케이스가 존재한다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;확장성&lt;/td&gt;
+      &lt;td&gt;확장하기가 쉽지는 않다.&lt;/td&gt;
+      &lt;td&gt;쉽게 middleware 를 커스터마이징 할 수 있다. 유지가 쉬운 편이다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;퍼포먼스&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;multiprocessing&lt;/code&gt;을 하면 매우 빠르다.&lt;/td&gt;
+      &lt;td&gt;괜찮은 편이다. 웹 페이지를 짧은 시간내에 크롤링할 수 있다. 잦은 경우로 download_delay 를 설정해줘야 spider가 정지당하는 경우를 피할 수 있다.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;가볍고 빠른 Beautiful Soup 와 자료가 방대하고 유연한 Scrapy 를 상황에 맞게 잘 골라 쓰면 되겠습니다.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 15 Jun 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018/06/15/python-crawling-scrapy/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/06/15/python-crawling-scrapy/</guid>
+        
+        
+        <category>crawl</category>
+        
+      </item>
     
       <item>
         <title>파이썬 크롤링 튜토리얼 - 6 : Pagination 된 게시판 크롤링</title>
