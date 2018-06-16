@@ -157,12 +157,10 @@ table {
       background-color: #f8f8f8; }
     table tr th {
       font-weight: bold;
-      border: 1px solid #cccccc;
       text-align: left;
       margin: 0;
       padding: 6px 13px; }
     table tr td {
-      border: 1px solid #cccccc;
       text-align: left;
       margin: 0;
       padding: 6px 13px; }
@@ -253,6 +251,13 @@ ol, ul {
 }
 .highlight > pre, .linenodiv > pre{
     line-height: normal
+}
+td.gutter{
+  border-right: 2px solid #f2e4c1;
+  background-color: #f8f9f9;
+}
+td.code{
+  background-color: #f8f9f9;
 }
 pre {
   border-radius: 0;
@@ -352,5 +357,8 @@ padding: 10px;
   color: #a58475;
 }
 .fa-coffee:hover {
-  background-color: #55acee;
+  background-color: #a58475;
+}
+.lineno {
+  font-weight: bold;
 }
