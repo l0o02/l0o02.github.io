@@ -20,7 +20,7 @@ image-sm: https://hakan.io/assets/img/python-scrapy.jpg
 Scrapy 는 파이썬으로 작성되었으며, `spider`를 작성해서 크롤링을 합니다. Scrapy 에서는 직접 `Beautiful Soup` 나 `lxml`을 사용할 수 있습니다. 하지만 Beautiful Soup 에서는 지원하지 않는 `XPath`를 Scrapy에서는 사용할 수 있습니다. XPath 를 사용함으로써 복잡한 HTML소스를 쉽게 크롤링 할 수 있게 해줍니다.
 
 #### 어떤게 더 좋을까?
-`Beautiful Soup`는 오로지 HTML을 파싱하고 데이터를 크롤링하는데에만 쓰입니다. 반면에 `Scrapy`는 HTML을 다운로드하고 데이터에 접근하여 저장합니다. 만약 이 두가지중에 선택해야 한다면, 많은 요소들을 고민해야 합니다.
+`Beautiful Soup`는 오로지 HTML을 파싱하고 데이터를 크롤링하는데에만 쓰입니다. 반면에 `Scrapy`는 HTML을 다운로드하고 데이터에 접근하여 저장합니다. 만약 이 두가지중에 선택해야 한다면, 아래 표를 참고하시는게 도움이 될겁니다.
 
 |Framework| Beautiful Soup | Scrapy |
 |--|--|--|
