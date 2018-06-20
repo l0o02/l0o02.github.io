@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: "파이썬 크롤링 튜토리얼 - 8 : Scrapy란? 네이버 뉴스 크롤링해서 CSV로 내보내기"
+title: "파이썬 크롤링 튜토리얼 - 8 : Scrapy 사용법, 네이버 뉴스 크롤링해서 CSV로 내보내기"
 date: 2018-06-19
 categories:
   - crawl
