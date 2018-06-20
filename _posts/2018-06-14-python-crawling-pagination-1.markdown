@@ -36,7 +36,7 @@ response = requests.get(URL)
 source = response.text
 soup = BeautifulSoup(source, 'html.parser')
 {% endhighlight %}
-우리가 크롤링하려는 페이지가 여러개이므로 동적인 URL 을 입력해줘야 합니다. 그렇기 때문에 만들어준 변수를 두개 만들어줬습니다.
+우리가 크롤링하려는 페이지가 여러개이므로 동적인 URL 을 입력해줘야 합니다. 그렇기 때문에 변수를 두개 만들어줬습니다.
 <br>`maximum`은 pagination 의 최대 값입니다. 총 세개가 있다는 것을 우리는 코드를 통해 알려줄 예정입니다.
 <br>`page`는 현재 지목하고 있는 page 의 pagination 값입니다. Naver 뉴스 페이지로 설명하자면 http://land...page=`1`, http://land...page=`3` 같은 유동적인 값 입니다.
 
