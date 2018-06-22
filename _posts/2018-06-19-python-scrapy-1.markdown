@@ -9,6 +9,8 @@ description: Scrapy Shell 을 통해 개념을 이해하고, 네이버 뉴스 �
 image: https://s3.amazonaws.com/thinkific/courses/course_card_image_000/216/1891512778404.original.jpg?1512778404
 image-sm: https://s3.amazonaws.com/thinkific/courses/course_card_image_000/216/1891512778404.original.jpg?1512778404
 ---
+* ToC
+{:toc}
 ## Scrapy 란?
 최근 웹에는 수억개의 웹페이지가 있으며, 대부분의 페이지들은 수많은 정보를 가지고 있습니다. 최근 빅데이터가 대두되면서 이전에 작성되었던 페이지들의 정보를 모아 유의미한 정보를 도출하기 위한 여러가지 방법들이 논의되고 있고, 이를 Scraping(혹은 Crawling)이라고 합니다. `Scrapy`는 Scraping을 도와주기위한 파이썬 기반 라이브러리입니다. Scrapy를 이용하여 필요한 페이지로 접속하여 원하는 형태로 데이터를 가공하여 데이터를 저장할수 있도록 도와줍니다. [(출처)](http://www.incodom.kr/%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC/Scrapy#h_a103e753e7b14159b61f918a62b1a4c5)
 
@@ -121,7 +123,12 @@ class NewsbotSpider(scrapy.Spider):
 			}
 			yield scraped_info
 {% endhighlight %}
-12번째 줄의 zip 함수는 list들을 하나씩 slice 하는겁니다.
+<sup style="color: #878787;">
+8~10: 크롤링 한 데이터를 list로 저장<br>
+12: zip 함수는 아래 사진 참고<br>
+13: scraped_info 에 zip으로 slice 한 데이터들을 저장<br>
+14~16: strip 함수를 이용해 문자열에 필요없는 공백을 제거<br>
+</sup>
 ![image](https://user-images.githubusercontent.com/39974109/41640142-a3ddbef2-749b-11e8-9e73-43fc69118fb2.png)
 
 #### Spider 실행하고 결과 확인하기
@@ -169,4 +176,3 @@ class NewsbotSpider(scrapy.Spider):
 			yield scraped_info
 {% endhighlight %}
 수고하셨습니다, 이것으로 scrapy의 기본적인 사용방법에 대해 알아봤습니다.
-

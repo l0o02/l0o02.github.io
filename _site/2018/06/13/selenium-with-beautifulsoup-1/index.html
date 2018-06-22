@@ -76,6 +76,8 @@
       <span></span>
     </div>
   </header>
+<script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script>
+<script>addBackToTop()</script>
 
   <section class="section-padding bg-grey" itemprop="articleBody">
     <div class="post">
@@ -85,7 +87,8 @@
 <p><a href="/2018/06/12/python-crawling-selenium-2/">파이썬 크롤링 튜토리얼 - 4</a>에서 페이스북에 로그인 하는 방법을 알아봤었습니다.
 튜토리얼 - 4 에서 완성한 코드를 재검토해보고 시작하겠습니다.</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+<figure class="highlight">
+  <pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -112,7 +115,8 @@
 <span class="n">elem</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">usr</span><span class="p">)</span>
 <span class="n">elem</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s">"pass"</span><span class="p">)</span>
 <span class="n">elem</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">pwd</span><span class="p">)</span>
-<span class="n">elem</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">Keys</span><span class="o">.</span><span class="n">RETURN</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="n">elem</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">Keys</span><span class="o">.</span><span class="n">RETURN</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre>
+</figure>
 
 <p>오늘은 이 코드를 응용해서, 내 타임라인에 있는 글을 몇개 긁어와보려고 합니다. 우리가 사용하는 driver 가 profile에 접속할 수 있도록 profile 링크(href)를 찾아줘야하는데, 이전에 사용했던 선택자말고 <code class="highlighter-rouge">XPath</code>를 사용해볼겁니다.</p>
 
@@ -122,10 +126,12 @@
 
 <p>그리고 4장에서 완성했던 코드 제일 끝에, 아래 코드를 입력합니다.</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+<figure class="highlight">
+  <pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="code"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_elements_by_xpath</span><span class="p">(</span><span class="s">'이곳에 Copy했던 XPath를 붙여넣습니다.'</span><span class="p">)</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">'href'</span><span class="p">))</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">'href'</span><span class="p">))</span></pre></td></tr></tbody></table></code></pre>
+</figure>
 
 <p>driver.find_elements_by_xpath XPath로 해당 elements 를 가져오는 겁니다. 기본적으로 a = find_elements_by_xpath 를 하게되면 a 는 list 상태가 되므로, a[0]을 한 뒤, get_attribute(‘href’)를 하는 겁니다. 그러면 elements 안에 있는 href(프로필 주소) 속성값으로 Web Driver 가 접속하게 되는겁니다.</p>
 
@@ -140,26 +146,33 @@
 <img src="https://user-images.githubusercontent.com/39974109/41327261-bc0cfefa-6efd-11e8-9abd-a40bff4114f0.png" alt="image" />
 좌측에 위치한 소개 부분을 크롤링 할 겁니다. Web Driver 가 현재 실행중인 웹 사이트의 소스를 가져오려면 아래 소스를 입력해야 합니다.</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">req</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">page_source</span></code></pre></figure>
+<figure class="highlight">
+  <pre><code class="language-python" data-lang="python"><span class="n">req</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">page_source</span></code></pre>
+</figure>
 
 <p>이렇게 req에 소스를 저장했으면 이 req가 HTML parser를 사용해야한다고 알려줘야합니다. <a href="/2018/06/09/python-crawling-1/">참고 : 파이썬 크롤링 튜토리얼 - 1</a>. 그 전에 맨 윗쪽에 <code class="highlighter-rouge">from bs4 import BeautifulSoup</code> 를 해줘야겠죠?</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">soup</span><span class="o">=</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight">
+  <pre><code class="language-python" data-lang="python"><span class="n">soup</span><span class="o">=</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span></code></pre>
+</figure>
 
 <p>그리고 선택자를 찾아내야 합니다. 
 <img src="https://user-images.githubusercontent.com/39974109/41327433-6a5ebffc-6efe-11e8-93bc-c3c7b554957e.png" alt="image" />
 <code class="highlighter-rouge">Copy -&gt; Copy Selector</code> 을 하게 되면 div의 id가 하나 나옵니다. 그럼 튜토리얼 - 1 에서 처럼 출력이 되는지 확인하기 위해 코드를 입력해봅시다.</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">information_list</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">"#intro_container_id"</span><span class="p">)</span>
+<figure class="highlight">
+  <pre><code class="language-python" data-lang="python"><span class="n">information_list</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">"#intro_container_id"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">information</span> <span class="ow">in</span> <span class="n">information_list</span><span class="p">:</span>
-	<span class="k">print</span><span class="p">(</span><span class="n">information</span><span class="o">.</span><span class="n">text</span><span class="p">)</span></code></pre></figure>
+	<span class="k">print</span><span class="p">(</span><span class="n">information</span><span class="o">.</span><span class="n">text</span><span class="p">)</span></code></pre>
+</figure>
 
 <p><img src="https://user-images.githubusercontent.com/39974109/41327533-d64ed58a-6efe-11e8-8688-5febd0b61725.png" alt="image" />
 크롤링이 된게 확인이 됩니다!</p>
 
 <p>최종 소스</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+<figure class="highlight">
+  <pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -208,7 +221,8 @@
 <span class="n">soup</span><span class="o">=</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
 <span class="n">information_list</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">"#intro_container_id"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">information</span> <span class="ow">in</span> <span class="n">information_list</span><span class="p">:</span>
-	<span class="k">print</span><span class="p">(</span><span class="n">information</span><span class="o">.</span><span class="n">text</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre></figure>
+	<span class="k">print</span><span class="p">(</span><span class="n">information</span><span class="o">.</span><span class="n">text</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre>
+</figure>
 
 
       <div id="share-bar">
@@ -288,7 +302,7 @@
           
 
               
-                <li class="post-list"><a href="/2018/06/19/python-scrapy-1/">- 파이썬 크롤링 튜토리얼 - 8 : Scrapy란? 네이버 뉴스 크롤링해서 CSV로 내보내기</a></li>
+                <li class="post-list"><a href="/2018/06/19/python-scrapy-1/">- 파이썬 크롤링 튜토리얼 - 8 : Scrapy 사용법, 네이버 뉴스 크롤링해서 CSV로 내보내기</a></li>
               
             
           

@@ -76,6 +76,8 @@
       <span></span>
     </div>
   </header>
+<script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script>
+<script>addBackToTop()</script>
 
   <section class="section-padding bg-grey" itemprop="articleBody">
     <div class="post">
@@ -97,7 +99,8 @@
 
 <h4 id="python-코드-작성하기">Python 코드 작성하기</h4>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<figure class="highlight">
+  <pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">maximum</span> <span class="o">=</span> <span class="mi">0</span>
@@ -106,7 +109,8 @@
 <span class="n">URL</span> <span class="o">=</span> <span class="s">'http://land.naver.com/news/field.nhn?page=1'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
 <span class="n">source</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span></code></pre></figure>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span></code></pre>
+</figure>
 
 <p>우리가 크롤링하려는 페이지가 여러개이므로 동적인 URL 을 입력해줘야 합니다. 그렇기 때문에 변수를 두개 만들어줬습니다.
 <br /><code class="highlighter-rouge">maximum</code>은 pagination 의 최대 값입니다. 총 세개가 있다는 것을 우리는 코드를 통해 알려줄 예정입니다.
@@ -114,7 +118,8 @@
 
 <p>아래는 페이지네이션이 몇번째 까지 있는지 확인하기 위한 소스 입니다.</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+<figure class="highlight">
+  <pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -127,7 +132,8 @@
 		<span class="n">maximum</span> <span class="o">=</span> <span class="n">page</span> <span class="o">-</span> <span class="mi">1</span>
 		<span class="k">break</span>
 	<span class="n">page</span> <span class="o">=</span> <span class="n">page</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"총 "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">maximum</span><span class="p">)</span> <span class="o">+</span> <span class="s">" 개의 페이지가 확인 됬습니다."</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="k">print</span><span class="p">(</span><span class="s">"총 "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">maximum</span><span class="p">)</span> <span class="o">+</span> <span class="s">" 개의 페이지가 확인 됬습니다."</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre>
+</figure>
 
 <p><sup style="color: #878787;"><br />
 1: while 에 진입하기 위해서 <code class="highlighter-rouge">TRUE</code> 인 <code class="highlighter-rouge">1</code>을 입력해줬습니다.<br />
@@ -145,7 +151,8 @@ maximum 변수의 값도 3 인게 확인이 됬습니다.</p>
 
 <p>그러면 크롤링할 준비가 됬습니다.</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+<figure class="highlight">
+  <pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -164,7 +171,8 @@ maximum 변수의 값도 3 인게 확인이 됬습니다.</p>
 <span class="n">find_title</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">"#content &gt; div.section_headline &gt; ul &gt; li &gt; dl &gt; dt &gt; a"</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">find_title</span><span class="p">:</span>
-	<span class="k">print</span><span class="p">(</span><span class="n">title</span><span class="o">.</span><span class="n">text</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre></figure>
+	<span class="k">print</span><span class="p">(</span><span class="n">title</span><span class="o">.</span><span class="n">text</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre>
+</figure>
 
 <p><sup style="color: #878787;"><br />
 1: whole_source 는 크롤링할 모든 페이지의 HTML 소스를 전부 저장할 변수입니다. 즉, http://land….page=1 부터 http://land….page=3 의 HTML 소스를 저장합니다.<br />
@@ -267,7 +275,7 @@ maximum 변수의 값도 3 인게 확인이 됬습니다.</p>
           
 
               
-                <li class="post-list"><a href="/2018/06/19/python-scrapy-1/">- 파이썬 크롤링 튜토리얼 - 8 : Scrapy란? 네이버 뉴스 크롤링해서 CSV로 내보내기</a></li>
+                <li class="post-list"><a href="/2018/06/19/python-scrapy-1/">- 파이썬 크롤링 튜토리얼 - 8 : Scrapy 사용법, 네이버 뉴스 크롤링해서 CSV로 내보내기</a></li>
               
             
           

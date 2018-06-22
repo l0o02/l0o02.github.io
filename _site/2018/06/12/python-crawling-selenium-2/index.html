@@ -76,6 +76,8 @@
       <span></span>
     </div>
   </header>
+<script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script>
+<script>addBackToTop()</script>
 
   <section class="section-padding bg-grey" itemprop="articleBody">
     <div class="post">
@@ -91,7 +93,8 @@
 패스워드를 입력해야 하는 곳은 <code class="highlighter-rouge">pass</code>라는 id를 사용 중입니다.</p>
 <h4 id="2-python-코드-작성하기">2. Python 코드 작성하기</h4>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<figure class="highlight">
+  <pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
 <span class="kn">from</span> <span class="nn">selenium.webdriver.common.keys</span> <span class="kn">import</span> <span class="n">Keys</span>
 
 <span class="n">usr</span> <span class="o">=</span> <span class="s">"아이디"</span>
@@ -105,7 +108,8 @@
 <span class="n">elem</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">usr</span><span class="p">)</span>
 <span class="n">elem</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s">"pass"</span><span class="p">)</span>
 <span class="n">elem</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">pwd</span><span class="p">)</span>
-<span class="n">elem</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">Keys</span><span class="o">.</span><span class="n">RETURN</span><span class="p">)</span></code></pre></figure>
+<span class="n">elem</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">Keys</span><span class="o">.</span><span class="n">RETURN</span><span class="p">)</span></code></pre>
+</figure>
 
 <p>usr과 pwd에는 본인의 페이스북 아이디와 비밀번호를 각각 입력해주면 됩니다.<br />
 driver.get 까지는 <a href="/2018/06/12/python-crawling-selenium-1/">파이썬 크롤링 튜토리얼 - 3</a>에서 다뤘던 내용이라 생략하겠습니다.<br /><br />
@@ -197,7 +201,7 @@ driver.get 까지는 <a href="/2018/06/12/python-crawling-selenium-1/">파이썬
           
 
               
-                <li class="post-list"><a href="/2018/06/19/python-scrapy-1/">- 파이썬 크롤링 튜토리얼 - 8 : Scrapy란? 네이버 뉴스 크롤링해서 CSV로 내보내기</a></li>
+                <li class="post-list"><a href="/2018/06/19/python-scrapy-1/">- 파이썬 크롤링 튜토리얼 - 8 : Scrapy 사용법, 네이버 뉴스 크롤링해서 CSV로 내보내기</a></li>
               
             
           
