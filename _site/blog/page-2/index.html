@@ -52,6 +52,8 @@
       <section class="previews">
   <div>
     
+      <figure class="absolute-bg preview__img" style="background-image: url('https://images4.alphacoders.com/629/thumb-1920-62986.jpg');"></figure>
+    
       <figure class="absolute-bg preview__img" style="background-image: url('http://www.fanghuomen.org/data/out/171/726453.jpg');"></figure>
     
       <figure class="absolute-bg preview__img" style="background-image: url('https://i.pinimg.com/originals/64/b7/de/64b7deb1bfa083d44f5e5b6a5b0f1859.jpg');"></figure>
@@ -59,8 +61,6 @@
       <figure class="absolute-bg preview__img" style="background-image: url('https://i2.wp.com/blog.fossasia.org/wp-content/uploads/2017/11/Cross-browser-testing-in-Selenium-Webdriver.png?fit=525%2C333&ssl=1');"></figure>
     
       <figure class="absolute-bg preview__img" style="background-image: url('http://ajaxuploader.com/images/drag-drop-file-upload.png');"></figure>
-    
-      <figure class="absolute-bg preview__img" style="background-image: url('https://cdn.dribbble.com/users/751348/screenshots/2329465/open-position-frontend-developer-dribbble-2-preview_1x.png');"></figure>
     
     <div class="previews__container">
       <span>Welcome to</span>
@@ -78,6 +78,15 @@
 
     <div class="tab">
       <ul itemscope itemtype="http://schema.org/Blog">
+        
+          <li class="preview" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+            <a class="preview__link" href="/2018/06/14/how-to-add-jekyll-related-post/" itemprop="url">
+              <span class="preview__date" itemprop="datePublished" datetime="2018-06-14T00:00:00+09:00">Jun 14, 2018</span>
+              <h2 class="preview__header" itemprop="name">jekyll 포스트에 Related Post를 추가하는 방법</h2>
+              <p class="preview__excerpt" itemprop="description">같은 카테고리의 글 리스팅 하기 파이썬 강의를 따라하던 사람이 피드백을 해서 개발하게 됬습니다. 아직 디자인은 안했습니다. _layouts/post.html 수정하기 post.html 중간 부분쯤을 보면 content 가 보입니다. 이 content 부분이 지금 Jekyll에서...</p>
+              <span class="preview__more">Read More</span>
+            </a>
+          </li>
         
           <li class="preview" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
             <a class="preview__link" href="/2018/06/13/selenium-with-beautifulsoup-1/" itemprop="url">
@@ -111,15 +120,6 @@
               <span class="preview__date" itemprop="datePublished" datetime="2018-06-12T00:00:00+09:00">Jun 12, 2018</span>
               <h2 class="preview__header" itemprop="name">jekyll 블로그 마크다운에 이미지 빠르고 편하게 업로드</h2>
               <p class="preview__excerpt" itemprop="description">jekyll 마크다운에 이미지 업로드하기 jekyll 블로그에 이미지 업로드하는데 이미지파일을 하나씩 푸쉬할 수도 없고.. 어떻게 업로드해야하나.. 생각하며 검색하다가 우연히 발견했다. 1. github 에 로그인하고 아무 repository 에 접속한다 2. Issues 에서...</p>
-              <span class="preview__more">Read More</span>
-            </a>
-          </li>
-        
-          <li class="preview" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-            <a class="preview__link" href="/2018/06/11/front-end-library-complication/" itemprop="url">
-              <span class="preview__date" itemprop="datePublished" datetime="2018-06-11T00:00:00+09:00">Jun 11, 2018</span>
-              <h2 class="preview__header" itemprop="name">프론트엔드 라이브러리 및 프레임워크 2018</h2>
-              <p class="preview__excerpt" itemprop="description">프론트엔드 라이브러리 모음 2018 Particle.js Particle.js는 말 그대로 JS를 이용해 파티클을 만들어주는 라이브러리이다. 화려한 효과로 백그라운드에 응용이 가능할 것 같다. Anime.js Javascript로 원하는 애니메이션을 구현할 수 있게 해준다. 직접 코딩하는것보다...</p>
               <span class="preview__more">Read More</span>
             </a>
           </li>
@@ -223,6 +223,24 @@
           <div class="card__container">
             <h2 class="card__header">library</h2>
             <p class="card__count">2 Posts</p>
+            <span class="card__more">View All</span>
+          </div>
+        </a>
+      </li>
+    
+      <li class="card">
+        
+        <a class="card__link" href="/category/python/">
+          
+            <div class="card__img">
+              
+                <figure class="absolute-bg" style="background-image: url('https://i.pinimg.com/originals/d4/e8/0f/d4e80f42466a860cd1b0810d2323e3ed.jpg');"></figure>
+              
+            </div>
+          
+          <div class="card__container">
+            <h2 class="card__header">python</h2>
+            <p class="card__count">1 Posts</p>
             <span class="card__more">View All</span>
           </div>
         </a>

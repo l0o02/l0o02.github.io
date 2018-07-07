@@ -5,9 +5,36 @@
     <description>Python, Django, React 등 이런저런 개발 그리고 잡다한 생각을 적을거에요.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 27 Jun 2018 21:36:42 +0900</pubDate>
-    <lastBuildDate>Wed, 27 Jun 2018 21:36:42 +0900</lastBuildDate>
+    <pubDate>Sat, 07 Jul 2018 17:20:09 +0900</pubDate>
+    <lastBuildDate>Sat, 07 Jul 2018 17:20:09 +0900</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
+    
+      <item>
+        <title>파이썬만으로 간단하게 HTTP 서버 열기</title>
+        <description>&lt;h2 id=&quot;python으로-간단한-웹-서버-만들기&quot;&gt;Python으로 간단한 웹 서버 만들기&lt;/h2&gt;
+
+&lt;p&gt;Apache를 설치하기 힘든 환경일 때나, 웹 디자인을 공부할 때 용이하다. 사용 방법은 &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt;가 있는 루트 디렉토리로 가서 아래 명령어를 실행하면 된다.
+뒤에 숫자는 포트이다.&lt;/p&gt;
+&lt;center&gt;
+`python 2.X` 버전
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;python &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; SimpleHTTPServer 8000&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+`python 3.X` 버전
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;python3 &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; http.server 8000&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/center&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/42408605-5ebf682c-8209-11e8-9e37-8b6ff2c63124.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 07 Jul 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018/07/07/how-to-run-a-server-with-python/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/07/07/how-to-run-a-server-with-python/</guid>
+        
+        
+        <category>python</category>
+        
+      </item>
     
       <item>
         <title>웹 페이지에 맨 위로 이동하는 버튼을 만들어주는 라이브러리</title>
@@ -806,55 +833,6 @@ driver.get()까지는 아까 얘기했으니 그 다음줄부터 알아보겠습
         
         
         <category>jekyll</category>
-        
-      </item>
-    
-      <item>
-        <title>프론트엔드 라이브러리 및 프레임워크 2018</title>
-        <description>&lt;h2 id=&quot;프론트엔드-라이브러리-모음-2018&quot;&gt;프론트엔드 라이브러리 모음 2018&lt;/h2&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;particlejs&quot;&gt;&lt;a href=&quot;https://vincentgarreau.com/particles.js/&quot;&gt;Particle.js&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;br /&gt;
-Particle.js는 말 그대로 JS를 이용해 파티클을 만들어주는 라이브러리이다. 화려한 효과로 백그라운드에 응용이 가능할 것 같다.
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;animejs&quot;&gt;&lt;a href=&quot;http://animejs.com/&quot;&gt;Anime.js&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;br /&gt;
-Javascript로 원하는 애니메이션을 구현할 수 있게 해준다.
-직접 코딩하는것보다 훨씬 빠르고 간결하게 애니메이션을 구현할 수 있을듯
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;materializecss&quot;&gt;&lt;a href=&quot;https://materializecss.com/&quot;&gt;MaterializeCSS&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;br /&gt;
-CSS와 Javascript로 컴포넌트들을 구현해 놓았다. 모던한 웹사이트를 만들 때 자주 사용했다.
-다만, Bootstrap보다는 많이 무겁다. 버튼 애니메이션이나 이런저런 효과가 많아서 그런 것 같다.
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;fiction-framework&quot;&gt;&lt;a href=&quot;https://sujan-s.github.io/fictoan/docs/docs.html#&quot;&gt;Fiction Framework&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;br /&gt;
-스타일리쉬한 컴포넌트들을 가지고 있는 프레임워크이다. Materialize 보단 가볍다.
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;epic-spinner&quot;&gt;&lt;a href=&quot;http://epic-spinners.epicmax.co/#/&quot;&gt;Epic Spinner&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;br /&gt;
-CSS로만 짜여진 스피너들을 모아놓았다. 로딩화면 같은곳에 적용할만하다.
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;grad-pad&quot;&gt;&lt;a href=&quot;http://ourownthing.co.uk/gradpad.html&quot;&gt;Grad Pad&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;br /&gt;
-웹 사이트 상에 배경화면 그라데이션을 쉽게 제작할 수 있게 해준다.
-한쪽을 반투명하게 혹은 투명하게 바꿀수도 있다. 기존의 배경화면에 overlay 할 경우에는 반투명도 사용하기 편할 것 같다.
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Mon, 11 Jun 2018 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2018/06/11/front-end-library-complication/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/11/front-end-library-complication/</guid>
-        
-        
-        <category>library</category>
-        
-        <category>front-end</category>
         
       </item>
     

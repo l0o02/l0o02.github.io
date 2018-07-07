@@ -52,6 +52,8 @@
       <section class="previews">
   <div>
     
+      <figure class="absolute-bg preview__img" style="background-image: url('https://i.pinimg.com/originals/d4/e8/0f/d4e80f42466a860cd1b0810d2323e3ed.jpg');"></figure>
+    
       <figure class="absolute-bg preview__img" style="background-image: url('https://static1.squarespace.com/static/535522c9e4b0ecf5755f4156/56edbc8b3c44d88f013be256/588c92f403596e0fcbb7d87f/1516124678330/back-to-top-1500.jpg?format=1500w');"></figure>
     
       <figure class="absolute-bg preview__img" style="background-image: url('https://s3.amazonaws.com/thinkific/courses/course_card_image_000/216/1891512778404.original.jpg?1512778404');"></figure>
@@ -59,8 +61,6 @@
       <figure class="absolute-bg preview__img" style="background-image: url('https://hakan.io/assets/img/python-scrapy.jpg');"></figure>
     
       <figure class="absolute-bg preview__img" style="background-image: url('https://cdn.dribbble.com/users/141880/screenshots/2513164/dailyui-085.gif');"></figure>
-    
-      <figure class="absolute-bg preview__img" style="background-image: url('https://images4.alphacoders.com/629/thumb-1920-62986.jpg');"></figure>
     
     <div class="previews__container">
       <span>Welcome to</span>
@@ -78,6 +78,15 @@
 
     <div class="tab">
       <ul itemscope itemtype="http://schema.org/Blog">
+        
+          <li class="preview" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+            <a class="preview__link" href="/2018/07/07/how-to-run-a-server-with-python/" itemprop="url">
+              <span class="preview__date" itemprop="datePublished" datetime="2018-07-07T00:00:00+09:00">Jul 7, 2018</span>
+              <h2 class="preview__header" itemprop="name">파이썬만으로 간단하게 HTTP 서버 열기</h2>
+              <p class="preview__excerpt" itemprop="description">Python으로 간단한 웹 서버 만들기 Apache를 설치하기 힘든 환경일 때나, 웹 디자인을 공부할 때 용이하다. 사용 방법은 index.html가 있는 루트 디렉토리로 가서 아래 명령어를 실행하면 된다. 뒤에 숫자는 포트이다. `python...</p>
+              <span class="preview__more">Read More</span>
+            </a>
+          </li>
         
           <li class="preview" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
             <a class="preview__link" href="/2018/06/22/html-back-to-top/" itemprop="url">
@@ -114,15 +123,6 @@
               <span class="preview__date" itemprop="datePublished" datetime="2018-06-14T00:00:00+09:00">Jun 14, 2018</span>
               <h2 class="preview__header" itemprop="name">파이썬 크롤링 튜토리얼 - 6 : Pagination 된 게시판 크롤링</h2>
               <p class="preview__excerpt" itemprop="description">Pagination 된 글 크롤링 하기 Pagination 이란, 여러 페이지에 일련의 관련 콘텐츠가 있음을 나타내는 페이지 번호 매김을 보여주는 것 입니다. 페이지네이션 된 게시판에는 URL에 특정 규칙이 있습니다. page=1, number=1 등...</p>
-              <span class="preview__more">Read More</span>
-            </a>
-          </li>
-        
-          <li class="preview" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-            <a class="preview__link" href="/2018/06/14/how-to-add-jekyll-related-post/" itemprop="url">
-              <span class="preview__date" itemprop="datePublished" datetime="2018-06-14T00:00:00+09:00">Jun 14, 2018</span>
-              <h2 class="preview__header" itemprop="name">jekyll 포스트에 Related Post를 추가하는 방법</h2>
-              <p class="preview__excerpt" itemprop="description">같은 카테고리의 글 리스팅 하기 파이썬 강의를 따라하던 사람이 피드백을 해서 개발하게 됬습니다. 아직 디자인은 안했습니다. _layouts/post.html 수정하기 post.html 중간 부분쯤을 보면 content 가 보입니다. 이 content 부분이 지금 Jekyll에서...</p>
               <span class="preview__more">Read More</span>
             </a>
           </li>
@@ -224,6 +224,24 @@
           <div class="card__container">
             <h2 class="card__header">library</h2>
             <p class="card__count">2 Posts</p>
+            <span class="card__more">View All</span>
+          </div>
+        </a>
+      </li>
+    
+      <li class="card">
+        
+        <a class="card__link" href="/category/python/">
+          
+            <div class="card__img">
+              
+                <figure class="absolute-bg" style="background-image: url('https://i.pinimg.com/originals/d4/e8/0f/d4e80f42466a860cd1b0810d2323e3ed.jpg');"></figure>
+              
+            </div>
+          
+          <div class="card__container">
+            <h2 class="card__header">python</h2>
+            <p class="card__count">1 Posts</p>
             <span class="card__more">View All</span>
           </div>
         </a>
