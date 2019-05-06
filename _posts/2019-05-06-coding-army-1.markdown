@@ -17,7 +17,7 @@ image-sm: https://w.namu.la/s/34d0cf74701846bbe2118bc02d9b3f22188bd8240c974e5deb
 ![image](https://i.ibb.co/h2Qcgs8/Groorm-ide-1472649517410-ide.png)
 
 #### Koding
-github.io 만 됬었더라면, 바로 이용했을 IDE 다.
+github.io 만 됬었더라면, 바로 이용했을 IDE 다. 많은 유저들이 사용중이고 여러가지 Tool 들이 있어서 실제로 설치형 IDE 와 유사하게 작동할 수 있을 듯 했다.
 ![image](https://i.ibb.co/JyzGTJ6/image.png)
 
 #### C9 IDE
