@@ -3,11 +3,24 @@
   <channel>
     <title>개발새발 블로그</title>
     <description>Python, Django, React 등 이런저런 개발 그리고 잡다한 생각을 적을거에요.</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 07 Jul 2018 17:20:09 +0900</pubDate>
-    <lastBuildDate>Sat, 07 Jul 2018 17:20:09 +0900</lastBuildDate>
-    <generator>Jekyll v3.8.3</generator>
+    <link>https://l0o02.github.io/</link>
+    <atom:link href="https://l0o02.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 06 May 2019 06:48:50 +0000</pubDate>
+    <lastBuildDate>Mon, 06 May 2019 06:48:50 +0000</lastBuildDate>
+    <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>군대에서 코딩하는 방법</title>
+        <description>&lt;h2 id=&quot;군대에서-코딩하기&quot;&gt;군대에서 코딩하기&lt;/h2&gt;
+</description>
+        <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
+        <link>https://l0o02.github.io/2019/05/06/coding-army-1/</link>
+        <guid isPermaLink="true">https://l0o02.github.io/2019/05/06/coding-army-1/</guid>
+        
+        
+        <category>crawl</category>
+        
+      </item>
     
       <item>
         <title>파이썬만으로 간단하게 HTTP 서버 열기</title>
@@ -27,9 +40,9 @@
 &lt;/center&gt;
 &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/42408605-5ebf682c-8209-11e8-9e37-8b6ff2c63124.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 </description>
-        <pubDate>Sat, 07 Jul 2018 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2018/07/07/how-to-run-a-server-with-python/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/07/07/how-to-run-a-server-with-python/</guid>
+        <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+        <link>https://l0o02.github.io/2018/07/07/how-to-run-a-server-with-python/</link>
+        <guid isPermaLink="true">https://l0o02.github.io/2018/07/07/how-to-run-a-server-with-python/</guid>
         
         
         <category>python</category>
@@ -42,9 +55,9 @@
 &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41758958-bb7ace2e-7626-11e8-8138-5c54de288165.png&quot; alt=&quot;image&quot; /&gt;
 &lt;a href=&quot;https://www.npmjs.com/package/vanilla-back-to-top&quot;&gt;이동하기&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Fri, 22 Jun 2018 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2018/06/22/html-back-to-top/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/22/html-back-to-top/</guid>
+        <pubDate>Fri, 22 Jun 2018 00:00:00 +0000</pubDate>
+        <link>https://l0o02.github.io/2018/06/22/html-back-to-top/</link>
+        <guid isPermaLink="true">https://l0o02.github.io/2018/06/22/html-back-to-top/</guid>
         
         
         <category>library</category>
@@ -137,7 +150,7 @@
 &lt;p&gt;결국 모든 포스트를 list에 저장하기 위해서는 태그[숫자]의 숫자 부분을 삭제해주면 됩니다.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;
-  &lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;o&quot;&gt;//*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;main_content&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ul&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;o&quot;&gt;//*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;main_content&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ul&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;XPath를 얻었으니 이제 크롤링을 해봅니다.&lt;/p&gt;
@@ -290,9 +303,9 @@
 
 &lt;p&gt;수고하셨습니다, 이것으로 scrapy의 기본적인 사용방법에 대해 알아봤습니다.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 19 Jun 2018 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2018/06/19/python-scrapy-1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/19/python-scrapy-1/</guid>
+        <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
+        <link>https://l0o02.github.io/2018/06/19/python-scrapy-1/</link>
+        <guid isPermaLink="true">https://l0o02.github.io/2018/06/19/python-scrapy-1/</guid>
         
         
         <category>crawl</category>
@@ -350,9 +363,9 @@
 
 &lt;p&gt;가볍고 빠른 Beautiful Soup 와 자료가 방대하고 유연한 Scrapy 를 상황에 맞게 잘 골라 쓰면 되겠습니다.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 15 Jun 2018 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2018/06/15/python-crawling-scrapy/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/15/python-crawling-scrapy/</guid>
+        <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
+        <link>https://l0o02.github.io/2018/06/15/python-crawling-scrapy/</link>
+        <guid isPermaLink="true">https://l0o02.github.io/2018/06/15/python-crawling-scrapy/</guid>
         
         
         <category>crawl</category>
@@ -478,9 +491,9 @@ maximum 변수의 값도 3 인게 확인이 됬습니다.&lt;/p&gt;
 
 &lt;p&gt;코드에 오류가 있거나 질문이 있다면 댓글로 답변해드리도록 하겠습니다.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 14 Jun 2018 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2018/06/14/python-crawling-pagination-1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/14/python-crawling-pagination-1/</guid>
+        <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
+        <link>https://l0o02.github.io/2018/06/14/python-crawling-pagination-1/</link>
+        <guid isPermaLink="true">https://l0o02.github.io/2018/06/14/python-crawling-pagination-1/</guid>
         
         
         <category>crawl</category>
@@ -502,9 +515,9 @@ post.html 중간 부분쯤을 보면 &lt;code class=&quot;highlighter-rouge&quot
 &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41375464-2c5d929e-6f91-11e8-9894-a7aa70797812.png&quot; alt=&quot;image&quot; /&gt;
 저는 이런식으로 CSS 코드를 작성했는데, 아직 미완성이라 깔끔하진 않네요. 마음대로 커스터마이징해서 추가하시면 됩니다.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 14 Jun 2018 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2018/06/14/how-to-add-jekyll-related-post/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/14/how-to-add-jekyll-related-post/</guid>
+        <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
+        <link>https://l0o02.github.io/2018/06/14/how-to-add-jekyll-related-post/</link>
+        <guid isPermaLink="true">https://l0o02.github.io/2018/06/14/how-to-add-jekyll-related-post/</guid>
         
         
         <category>jekyll</category>
@@ -657,9 +670,9 @@ post.html 중간 부분쯤을 보면 &lt;code class=&quot;highlighter-rouge&quot
 &lt;/figure&gt;
 
 </description>
-        <pubDate>Wed, 13 Jun 2018 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2018/06/13/selenium-with-beautifulsoup-1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/13/selenium-with-beautifulsoup-1/</guid>
+        <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
+        <link>https://l0o02.github.io/2018/06/13/selenium-with-beautifulsoup-1/</link>
+        <guid isPermaLink="true">https://l0o02.github.io/2018/06/13/selenium-with-beautifulsoup-1/</guid>
         
         
         <category>crawl</category>
@@ -711,9 +724,9 @@ driver.get 까지는 &lt;a href=&quot;/2018/06/12/python-crawling-selenium-1/&qu
 
 &lt;p&gt;응용하여 Logout 기능까지도 만들어 보면, 이 포스트를 제대로 이해했는지 확인할 수 있을 것 같습니다.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 12 Jun 2018 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2018/06/12/python-crawling-selenium-2/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/12/python-crawling-selenium-2/</guid>
+        <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
+        <link>https://l0o02.github.io/2018/06/12/python-crawling-selenium-2/</link>
+        <guid isPermaLink="true">https://l0o02.github.io/2018/06/12/python-crawling-selenium-2/</guid>
         
         
         <category>crawl</category>
@@ -804,35 +817,12 @@ driver.get()까지는 아까 얘기했으니 그 다음줄부터 알아보겠습
 간단하게 Selenium에 대해 알아봤습니다. 다음 장에서는, Facebook Login을 구현해보도록 하겠습니다.
 &lt;/center&gt;
 </description>
-        <pubDate>Tue, 12 Jun 2018 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2018/06/12/python-crawling-selenium-1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/12/python-crawling-selenium-1/</guid>
+        <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
+        <link>https://l0o02.github.io/2018/06/12/python-crawling-selenium-1/</link>
+        <guid isPermaLink="true">https://l0o02.github.io/2018/06/12/python-crawling-selenium-1/</guid>
         
         
         <category>crawl</category>
-        
-      </item>
-    
-      <item>
-        <title>jekyll 블로그 마크다운에 이미지 빠르고 편하게 업로드</title>
-        <description>&lt;h2 id=&quot;jekyll-마크다운에-이미지-업로드하기&quot;&gt;jekyll 마크다운에 이미지 업로드하기&lt;/h2&gt;
-&lt;p&gt;jekyll 블로그에 이미지 업로드하는데 이미지파일을 하나씩 푸쉬할 수도 없고.. 어떻게 업로드해야하나.. 생각하며 검색하다가
-우연히 발견했다.&lt;/p&gt;
-&lt;h4 id=&quot;1-github-에-로그인하고-아무-repository-에-접속한다&quot;&gt;1. github 에 로그인하고 아무 repository 에 접속한다&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41288395-231600b0-6e81-11e8-83ba-95aa4dc7e339.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;2-issues-에서-new-issue를-클릭하고-이미지를-붙여넣는다&quot;&gt;2. Issues 에서 New issue를 클릭하고, 이미지를 붙여넣는다&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41288483-71430896-6e81-11e8-8872-44fc43de3291.png&quot; alt=&quot;image&quot; /&gt;
-조금만 기다리다보면 Markdown 에서 바로 사용할 수 있는 이미지 링크가 생성된다.
-그대로 복사, 붙여넣기하여 바로 사용하면 된다.&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 12 Jun 2018 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2018/06/12/github-io-easy-upload-image/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/12/github-io-easy-upload-image/</guid>
-        
-        
-        <category>jekyll</category>
         
       </item>
     

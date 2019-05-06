@@ -2,25 +2,9 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
     <url>
-      <loc>http://localhost:4000/2018/07/07/how-to-run-a-server-with-python/</loc>
+      <loc>https://l0o02.github.io/2019/05/06/coding-army-1/</loc>
       
-        <lastmod>2018-07-07T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>daily</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2018/06/22/html-back-to-top/</loc>
-      
-        <lastmod>2018-06-22T00:00:00+09:00</lastmod>
+        <lastmod>2019-05-06T00:00:00+00:00</lastmod>
       
 
       
@@ -34,25 +18,9 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2018/06/19/python-scrapy-1/</loc>
+      <loc>https://l0o02.github.io/2018/07/07/how-to-run-a-server-with-python/</loc>
       
-        <lastmod>2018-06-19T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>daily</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2018/06/15/python-crawling-scrapy/</loc>
-      
-        <lastmod>2018-06-15T00:00:00+09:00</lastmod>
+        <lastmod>2018-07-07T00:00:00+00:00</lastmod>
       
 
       
@@ -66,25 +34,9 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2018/06/14/python-crawling-pagination-1/</loc>
+      <loc>https://l0o02.github.io/2018/06/22/html-back-to-top/</loc>
       
-        <lastmod>2018-06-14T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>daily</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2018/06/14/how-to-add-jekyll-related-post/</loc>
-      
-        <lastmod>2018-06-14T00:00:00+09:00</lastmod>
+        <lastmod>2018-06-22T00:00:00+00:00</lastmod>
       
 
       
@@ -98,25 +50,9 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2018/06/13/selenium-with-beautifulsoup-1/</loc>
+      <loc>https://l0o02.github.io/2018/06/19/python-scrapy-1/</loc>
       
-        <lastmod>2018-06-13T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>daily</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2018/06/12/python-crawling-selenium-2/</loc>
-      
-        <lastmod>2018-06-12T00:00:00+09:00</lastmod>
+        <lastmod>2018-06-19T00:00:00+00:00</lastmod>
       
 
       
@@ -130,25 +66,9 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2018/06/12/python-crawling-selenium-1/</loc>
+      <loc>https://l0o02.github.io/2018/06/15/python-crawling-scrapy/</loc>
       
-        <lastmod>2018-06-12T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>daily</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2018/06/12/github-io-easy-upload-image/</loc>
-      
-        <lastmod>2018-06-12T00:00:00+09:00</lastmod>
+        <lastmod>2018-06-15T00:00:00+00:00</lastmod>
       
 
       
@@ -162,25 +82,9 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2018/06/11/front-end-library-complication/</loc>
+      <loc>https://l0o02.github.io/2018/06/14/python-crawling-pagination-1/</loc>
       
-        <lastmod>2018-06-11T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>daily</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2018/06/10/python-crawling-2/</loc>
-      
-        <lastmod>2018-06-10T00:00:00+09:00</lastmod>
+        <lastmod>2018-06-14T00:00:00+00:00</lastmod>
       
 
       
@@ -194,9 +98,121 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2018/06/09/python-crawling-1/</loc>
+      <loc>https://l0o02.github.io/2018/06/14/how-to-add-jekyll-related-post/</loc>
       
-        <lastmod>2018-06-09T00:00:00+09:00</lastmod>
+        <lastmod>2018-06-14T00:00:00+00:00</lastmod>
+      
+
+      
+        <changefreq>daily</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://l0o02.github.io/2018/06/13/selenium-with-beautifulsoup-1/</loc>
+      
+        <lastmod>2018-06-13T00:00:00+00:00</lastmod>
+      
+
+      
+        <changefreq>daily</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://l0o02.github.io/2018/06/12/python-crawling-selenium-2/</loc>
+      
+        <lastmod>2018-06-12T00:00:00+00:00</lastmod>
+      
+
+      
+        <changefreq>daily</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://l0o02.github.io/2018/06/12/python-crawling-selenium-1/</loc>
+      
+        <lastmod>2018-06-12T00:00:00+00:00</lastmod>
+      
+
+      
+        <changefreq>daily</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://l0o02.github.io/2018/06/12/github-io-easy-upload-image/</loc>
+      
+        <lastmod>2018-06-12T00:00:00+00:00</lastmod>
+      
+
+      
+        <changefreq>daily</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://l0o02.github.io/2018/06/11/front-end-library-complication/</loc>
+      
+        <lastmod>2018-06-11T00:00:00+00:00</lastmod>
+      
+
+      
+        <changefreq>daily</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://l0o02.github.io/2018/06/10/python-crawling-2/</loc>
+      
+        <lastmod>2018-06-10T00:00:00+00:00</lastmod>
+      
+
+      
+        <changefreq>daily</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://l0o02.github.io/2018/06/09/python-crawling-1_copy0/</loc>
+      
+        <lastmod>2018-06-09T00:00:00+00:00</lastmod>
       
 
       
