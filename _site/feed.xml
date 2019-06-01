@@ -3,10 +3,10 @@
   <channel>
     <title>개발새발 블로그</title>
     <description>Python, Django, React 등 이런저런 개발 그리고 잡다한 생각을 적을거에요.</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 May 2019 13:56:04 +0000</pubDate>
-    <lastBuildDate>Mon, 06 May 2019 13:56:04 +0000</lastBuildDate>
+    <link>http://localhost:4000https://jekyll-serve.run.goorm.io/</link>
+    <atom:link href="http://localhost:4000https://jekyll-serve.run.goorm.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 11 May 2019 13:35:18 +0000</pubDate>
+    <lastBuildDate>Sat, 11 May 2019 13:35:18 +0000</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -28,8 +28,8 @@
 &lt;p&gt;만약에 HTML, CSS 그리고 Javascript 를 공부할 예정이라면, &lt;a href=&quot;https://codepen.io&quot;&gt;Codepen&lt;/a&gt; 사용도 고려해보면 좋을것 같다.&lt;/p&gt;
 </description>
         <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2019/05/06/coding-army-1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/05/06/coding-army-1/</guid>
+        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2019/05/06/coding-army-1/</link>
+        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2019/05/06/coding-army-1/</guid>
         
         
         <category>life</category>
@@ -55,8 +55,8 @@
 &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/42408605-5ebf682c-8209-11e8-9e37-8b6ff2c63124.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2018/07/07/how-to-run-a-server-with-python/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/07/07/how-to-run-a-server-with-python/</guid>
+        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2018/07/07/how-to-run-a-server-with-python/</link>
+        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2018/07/07/how-to-run-a-server-with-python/</guid>
         
         
         <category>python</category>
@@ -70,8 +70,8 @@
 &lt;a href=&quot;https://www.npmjs.com/package/vanilla-back-to-top&quot;&gt;이동하기&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Fri, 22 Jun 2018 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2018/06/22/html-back-to-top/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/22/html-back-to-top/</guid>
+        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/22/html-back-to-top/</link>
+        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/22/html-back-to-top/</guid>
         
         
         <category>library</category>
@@ -318,8 +318,8 @@
 &lt;p&gt;수고하셨습니다, 이것으로 scrapy의 기본적인 사용방법에 대해 알아봤습니다.&lt;/p&gt;
 </description>
         <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2018/06/19/python-scrapy-1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/19/python-scrapy-1/</guid>
+        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/19/python-scrapy-1/</link>
+        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/19/python-scrapy-1/</guid>
         
         
         <category>crawl</category>
@@ -378,8 +378,8 @@
 &lt;p&gt;가볍고 빠른 Beautiful Soup 와 자료가 방대하고 유연한 Scrapy 를 상황에 맞게 잘 골라 쓰면 되겠습니다.&lt;/p&gt;
 </description>
         <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2018/06/15/python-crawling-scrapy/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/15/python-crawling-scrapy/</guid>
+        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/15/python-crawling-scrapy/</link>
+        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/15/python-crawling-scrapy/</guid>
         
         
         <category>crawl</category>
@@ -506,8 +506,8 @@ maximum 변수의 값도 3 인게 확인이 됬습니다.&lt;/p&gt;
 &lt;p&gt;코드에 오류가 있거나 질문이 있다면 댓글로 답변해드리도록 하겠습니다.&lt;/p&gt;
 </description>
         <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2018/06/14/python-crawling-pagination-1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/14/python-crawling-pagination-1/</guid>
+        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/14/python-crawling-pagination-1/</link>
+        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/14/python-crawling-pagination-1/</guid>
         
         
         <category>crawl</category>
@@ -530,8 +530,8 @@ post.html 중간 부분쯤을 보면 &lt;code class=&quot;highlighter-rouge&quot
 저는 이런식으로 CSS 코드를 작성했는데, 아직 미완성이라 깔끔하진 않네요. 마음대로 커스터마이징해서 추가하시면 됩니다.&lt;/p&gt;
 </description>
         <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2018/06/14/how-to-add-jekyll-related-post/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/14/how-to-add-jekyll-related-post/</guid>
+        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/14/how-to-add-jekyll-related-post/</link>
+        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/14/how-to-add-jekyll-related-post/</guid>
         
         
         <category>jekyll</category>
@@ -685,8 +685,8 @@ post.html 중간 부분쯤을 보면 &lt;code class=&quot;highlighter-rouge&quot
 
 </description>
         <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2018/06/13/selenium-with-beautifulsoup-1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/13/selenium-with-beautifulsoup-1/</guid>
+        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/13/selenium-with-beautifulsoup-1/</link>
+        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/13/selenium-with-beautifulsoup-1/</guid>
         
         
         <category>crawl</category>
@@ -739,8 +739,8 @@ driver.get 까지는 &lt;a href=&quot;/2018/06/12/python-crawling-selenium-1/&qu
 &lt;p&gt;응용하여 Logout 기능까지도 만들어 보면, 이 포스트를 제대로 이해했는지 확인할 수 있을 것 같습니다.&lt;/p&gt;
 </description>
         <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2018/06/12/python-crawling-selenium-2/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/12/python-crawling-selenium-2/</guid>
+        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/12/python-crawling-selenium-2/</link>
+        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/12/python-crawling-selenium-2/</guid>
         
         
         <category>crawl</category>
@@ -832,8 +832,8 @@ driver.get()까지는 아까 얘기했으니 그 다음줄부터 알아보겠습
 &lt;/center&gt;
 </description>
         <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2018/06/12/python-crawling-selenium-1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/12/python-crawling-selenium-1/</guid>
+        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/12/python-crawling-selenium-1/</link>
+        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/12/python-crawling-selenium-1/</guid>
         
         
         <category>crawl</category>
