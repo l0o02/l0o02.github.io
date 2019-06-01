@@ -1,6 +1,6 @@
 # Site settings
 email: hjvsdh.dev@gmail.com
-baseurl: "https://jekyll-serve.run.goorm.io/"
+baseurl: ""
 paginate: 5
 paginate_path: "/blog/page-:num"
 google_analytics: UA-120591017-1
@@ -8,7 +8,7 @@ google_analytics: UA-120591017-1
 # SEO settings
 title: 개발새발 블로그
 description: Python, Django, React 등 이런저런 개발 그리고 잡다한 생각을 적을거에요.
-url: "https://l0o02.github.io"
+url: ""
 twitter_username: DirtyBackend
 default_img: 
 

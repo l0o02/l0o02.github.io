@@ -3,11 +3,25 @@
   <channel>
     <title>개발새발 블로그</title>
     <description>Python, Django, React 등 이런저런 개발 그리고 잡다한 생각을 적을거에요.</description>
-    <link>http://localhost:4000https://jekyll-serve.run.goorm.io/</link>
-    <atom:link href="http://localhost:4000https://jekyll-serve.run.goorm.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 11 May 2019 13:35:18 +0000</pubDate>
-    <lastBuildDate>Sat, 11 May 2019 13:35:18 +0000</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 01 Jun 2019 13:51:25 +0000</pubDate>
+    <lastBuildDate>Sat, 01 Jun 2019 13:51:25 +0000</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>군대에서 Github 접속이 가능해지다.</title>
+        <description>&lt;h2 id=&quot;github-사용이-가능해지면서&quot;&gt;Github 사용이 가능해지면서&lt;/h2&gt;
+&lt;p&gt;싸이버 지식 정보방에서 접속이 불가능하여, 관리를 포기했었던 repository 들을 접속하게 되었다.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2019/06/01/coding-army-2/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/06/01/coding-army-2/</guid>
+        
+        
+        <category>life</category>
+        
+      </item>
     
       <item>
         <title>군대에서 코딩하는 방법</title>
@@ -28,8 +42,8 @@
 &lt;p&gt;만약에 HTML, CSS 그리고 Javascript 를 공부할 예정이라면, &lt;a href=&quot;https://codepen.io&quot;&gt;Codepen&lt;/a&gt; 사용도 고려해보면 좋을것 같다.&lt;/p&gt;
 </description>
         <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2019/05/06/coding-army-1/</link>
-        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2019/05/06/coding-army-1/</guid>
+        <link>http://localhost:4000/2019/05/06/coding-army-1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/05/06/coding-army-1/</guid>
         
         
         <category>life</category>
@@ -55,8 +69,8 @@
 &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/42408605-5ebf682c-8209-11e8-9e37-8b6ff2c63124.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2018/07/07/how-to-run-a-server-with-python/</link>
-        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2018/07/07/how-to-run-a-server-with-python/</guid>
+        <link>http://localhost:4000/2018/07/07/how-to-run-a-server-with-python/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/07/07/how-to-run-a-server-with-python/</guid>
         
         
         <category>python</category>
@@ -70,8 +84,8 @@
 &lt;a href=&quot;https://www.npmjs.com/package/vanilla-back-to-top&quot;&gt;이동하기&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Fri, 22 Jun 2018 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/22/html-back-to-top/</link>
-        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/22/html-back-to-top/</guid>
+        <link>http://localhost:4000/2018/06/22/html-back-to-top/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/06/22/html-back-to-top/</guid>
         
         
         <category>library</category>
@@ -318,8 +332,8 @@
 &lt;p&gt;수고하셨습니다, 이것으로 scrapy의 기본적인 사용방법에 대해 알아봤습니다.&lt;/p&gt;
 </description>
         <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/19/python-scrapy-1/</link>
-        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/19/python-scrapy-1/</guid>
+        <link>http://localhost:4000/2018/06/19/python-scrapy-1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/06/19/python-scrapy-1/</guid>
         
         
         <category>crawl</category>
@@ -378,8 +392,8 @@
 &lt;p&gt;가볍고 빠른 Beautiful Soup 와 자료가 방대하고 유연한 Scrapy 를 상황에 맞게 잘 골라 쓰면 되겠습니다.&lt;/p&gt;
 </description>
         <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/15/python-crawling-scrapy/</link>
-        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/15/python-crawling-scrapy/</guid>
+        <link>http://localhost:4000/2018/06/15/python-crawling-scrapy/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/06/15/python-crawling-scrapy/</guid>
         
         
         <category>crawl</category>
@@ -506,8 +520,8 @@ maximum 변수의 값도 3 인게 확인이 됬습니다.&lt;/p&gt;
 &lt;p&gt;코드에 오류가 있거나 질문이 있다면 댓글로 답변해드리도록 하겠습니다.&lt;/p&gt;
 </description>
         <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/14/python-crawling-pagination-1/</link>
-        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/14/python-crawling-pagination-1/</guid>
+        <link>http://localhost:4000/2018/06/14/python-crawling-pagination-1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/06/14/python-crawling-pagination-1/</guid>
         
         
         <category>crawl</category>
@@ -530,8 +544,8 @@ post.html 중간 부분쯤을 보면 &lt;code class=&quot;highlighter-rouge&quot
 저는 이런식으로 CSS 코드를 작성했는데, 아직 미완성이라 깔끔하진 않네요. 마음대로 커스터마이징해서 추가하시면 됩니다.&lt;/p&gt;
 </description>
         <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/14/how-to-add-jekyll-related-post/</link>
-        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/14/how-to-add-jekyll-related-post/</guid>
+        <link>http://localhost:4000/2018/06/14/how-to-add-jekyll-related-post/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/06/14/how-to-add-jekyll-related-post/</guid>
         
         
         <category>jekyll</category>
@@ -685,8 +699,8 @@ post.html 중간 부분쯤을 보면 &lt;code class=&quot;highlighter-rouge&quot
 
 </description>
         <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/13/selenium-with-beautifulsoup-1/</link>
-        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/13/selenium-with-beautifulsoup-1/</guid>
+        <link>http://localhost:4000/2018/06/13/selenium-with-beautifulsoup-1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/06/13/selenium-with-beautifulsoup-1/</guid>
         
         
         <category>crawl</category>
@@ -739,101 +753,8 @@ driver.get 까지는 &lt;a href=&quot;/2018/06/12/python-crawling-selenium-1/&qu
 &lt;p&gt;응용하여 Logout 기능까지도 만들어 보면, 이 포스트를 제대로 이해했는지 확인할 수 있을 것 같습니다.&lt;/p&gt;
 </description>
         <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/12/python-crawling-selenium-2/</link>
-        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/12/python-crawling-selenium-2/</guid>
-        
-        
-        <category>crawl</category>
-        
-      </item>
-    
-      <item>
-        <title>파이썬 크롤링 튜토리얼 - 3 : Selenium 사용법과 이해</title>
-        <description>&lt;h2 id=&quot;selenium으로-크롤링-하기&quot;&gt;Selenium으로 크롤링 하기&lt;/h2&gt;
-&lt;p&gt;&lt;sup style=&quot;color: #878787;&quot;&gt;
-    &lt;a href=&quot;/2018/06/09/python-crawling-1/&quot;&gt;Beautiful Soup&lt;/a&gt; 은 1장과 2장에서 다룹니다.
-&lt;/sup&gt;&lt;/p&gt;
-&lt;h4 id=&quot;1-selenium-에-대해서&quot;&gt;1. &lt;a href=&quot;https://www.seleniumhq.org/&quot;&gt;Selenium&lt;/a&gt; 에 대해서&lt;/h4&gt;
-&lt;p&gt;Selenium은 웹 애플리케이션을 위한 &lt;code class=&quot;highlighter-rouge&quot;&gt;테스팅 프레임워크&lt;/code&gt;입니다. 자동화 테스트를 위해 여러 가지 기능을 지원합니다. 다양한 언어에서도 사용이 가능합니다. Beautiful Soap는 웹사이트에서 버튼을 클릭해야 얻을 수 있는 데이터라던가, Javascript 에 조건이 충족되어야만 얻을 수 있는 데이터에 접근하는 것에 한계가 있습니다. 그래서, 직접적으로 웹 사이트에 접근할 수 있게 해주는 Selenium을 사용해야 합니다. 새로운 환경에서 웹 브라우저를 대신해 줄 &lt;a href=&quot;http://chromedriver.chromium.org/downloads&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Web Driver&lt;/code&gt;&lt;/a&gt;가 필요합니다. Web Driver를 눌러 설치를 합시다. Web Driver는 Selenium이 사용할 웹 브라우저이고, Selenium으로 자동화하여 웹 사이트를 탐험하면 됩니다.&lt;/p&gt;
-
-&lt;h4 id=&quot;2-selenium-이해하기&quot;&gt;2. Selenium 이해하기&lt;/h4&gt;
-&lt;p&gt;pip 명령어를 사용해 Selenium 을 설치해줍니다.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;
-  &lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt; pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;selenium &lt;/code&gt;&lt;/pre&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Python파일을 하나 만들고 아래 코드를 실행해봅시다.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;
-  &lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;
- 
-&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Webdriver의 경로를 입력합니다.&quot;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Chrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;파일을 실행해보면 어떻게 될까요?
-&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41285921-b8616c44-6e78-11e8-95b4-83150949de2a.png&quot; alt=&quot;image&quot; width=&quot;100%&quot; /&gt;
-크롬 창이 켜졌습니다! Selenium 으로 제어하기 때문에, 크롬창에 자동화된 테스트 소프트웨어로 제어중이라는겁니다.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;
-  &lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'https://www.naver.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;맨 마지막줄에 입력하고, 다시 실행해봅니다. 네이버로 접속되는게 보일겁니다.&lt;/p&gt;
-
-&lt;h4 id=&quot;3-selenium-으로-검색하기&quot;&gt;3. Selenium 으로 검색하기&lt;/h4&gt;
-&lt;p&gt;이제 셀레니움으로 크롬을 꺼냈으니 무라도 썰어야합니다. 자, 아래 코드를 입력해봅시다.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;
-  &lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Webdriver 경로를 입력합니다.&quot;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Chrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://google.com/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;search_box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_element_by_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;q&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;search_box&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;개발새발 블로그&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;search_box&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;submit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;실행해보면 구글에 개발새발 블로그가 검색됩니다. 어떤식으로 진행이 되는지 하나하나 알아볼까요?
-driver.get()까지는 아까 얘기했으니 그 다음줄부터 알아보겠습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41304474-38b9ec2c-6eab-11e8-888d-6ccfaf6a3c77.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-&lt;center&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;search_box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_element_by_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;q&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-위 개발자 도구를 확인해보면 우리가 사용할 input의 name이 q 인것을 확인할 수 있습니다. search_box가 커서를 어디다 둬야할 지 name으로 찾아준겁니다.
-&lt;/center&gt;
-
-&lt;center&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;search_box&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;개발새발 블로그&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;search_box&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;submit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-아까 찾은 검색 input 에 개발새발 블로그를 입력하고 submit()으로 검색 버튼을 누른겁니다.
-
-&lt;br /&gt;
-&lt;br /&gt;
-간단하게 Selenium에 대해 알아봤습니다. 다음 장에서는, Facebook Login을 구현해보도록 하겠습니다.
-&lt;/center&gt;
-</description>
-        <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/12/python-crawling-selenium-1/</link>
-        <guid isPermaLink="true">http://localhost:4000https://jekyll-serve.run.goorm.io/2018/06/12/python-crawling-selenium-1/</guid>
+        <link>http://localhost:4000/2018/06/12/python-crawling-selenium-2/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/06/12/python-crawling-selenium-2/</guid>
         
         
         <category>crawl</category>
