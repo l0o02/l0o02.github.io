@@ -9,7 +9,7 @@
 $font-header: 'Space Mono', monospace;
 $font-body: 'Inconsolata', monospace;
 $font-post: 'Nanum Myeongjo', serif;
-
+$font-h: 'Jua', sans-serif;
 
 $color-alpha: #9f8f68;
 $color-alpha--light: #f5f3ef;
@@ -65,7 +65,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  font-family: $font-header;
+  font-family: $font-h;
   line-height: 1.1;
 }
 
@@ -82,7 +82,6 @@ h1 {
 }
 
 h2 {
-  font-family: 'Jua', sans-serif;
   margin-bottom: 0.5em;
   font-size: 1.8em;
 
