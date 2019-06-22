@@ -5,9 +5,31 @@
     <description>Python, Django, React 등 이런저런 개발 그리고 잡다한 생각을 적을거에요.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 01 Jun 2019 13:51:25 +0000</pubDate>
-    <lastBuildDate>Sat, 01 Jun 2019 13:51:25 +0000</lastBuildDate>
+    <pubDate>Sat, 22 Jun 2019 00:58:10 +0000</pubDate>
+    <lastBuildDate>Sat, 22 Jun 2019 00:58:10 +0000</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>싸지방에서 개발 환경 구축하기</title>
+        <description>&lt;h2 id=&quot;사이버-지식-정보방에서-환경-구축하기&quot;&gt;사이버 지식 정보방에서 환경 구축하기&lt;/h2&gt;
+&lt;p&gt;개발을 하고싶어하는 군인들을 위해서, 내가 사용하는 환경과 그 구축 방법을 알려주려고 한다. 아래 사진은 완성된 작업 환경이다.
+&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/59957305-e904ea80-94d1-11e9-8346-8f331920f6a2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;VSCODE를 설치하지도 않았고, 100% 웹 사이트에서 실행 가능하다. VSCODE 에서 사용하는 여러가지 Package들을 사용할 수 있다. 심지어 Theme도 설치가 가능하다. 사회에서와 같은 환경으로 개발이 가능하다는 점이 개발을 좋아하는 군인들에게있어 꽤 매력적일 것이라 생각한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;google-cloud-platform&quot;&gt;Google Cloud Platform&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/59957364-9841c180-94d2-11e9-9d27-79eecd5dacf7.png&quot; alt=&quot;image&quot; /&gt;
+우선적으로 구글 클라우드 플랫폼을 가입해야한다. &lt;a href=&quot;https://console.cloud.google.com/&quot;&gt;이동하기&lt;/a&gt;, 구글 클라우드는 약 1년정도 무료로 사용 가능하며, 300$ 정도의 크레딧을 제공한다. 현역 병사들에게 1년정도의 무료 사용 기간은 어느정도 충분하다고 생각하지만 부족하다면은 결제를 고려해보는 것도 좋다. 그리고 다른 서버를 가지고 있다면, 이 과정은 생략해도 좋다.&lt;/p&gt;
+&lt;h4 id=&quot;vm-인스턴스-생성하기&quot;&gt;VM 인스턴스 생성하기&lt;/h4&gt;
+</description>
+        <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2019/06/01/coder-with-cloud/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/06/01/coder-with-cloud/</guid>
+        
+        
+        <category>life</category>
+        
+      </item>
     
       <item>
         <title>군대에서 Github 접속이 가능해지다.</title>
@@ -701,60 +723,6 @@ post.html 중간 부분쯤을 보면 &lt;code class=&quot;highlighter-rouge&quot
         <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2018/06/13/selenium-with-beautifulsoup-1/</link>
         <guid isPermaLink="true">http://localhost:4000/2018/06/13/selenium-with-beautifulsoup-1/</guid>
-        
-        
-        <category>crawl</category>
-        
-      </item>
-    
-      <item>
-        <title>파이썬 크롤링 튜토리얼 - 4 : Selenium을 이용해 페이스북에 로그인</title>
-        <description>&lt;h2 id=&quot;selenium으로-facebook-로그인하기&quot;&gt;Selenium으로 Facebook 로그인하기&lt;/h2&gt;
-&lt;p&gt;&lt;sup style=&quot;color: #878787;&quot;&gt;
-    &lt;a href=&quot;/2018/06/09/python-crawling-1/&quot;&gt;Beautiful Soup&lt;/a&gt; 은 1장과 2장에서 다룹니다.
-&lt;/sup&gt;&lt;/p&gt;
-&lt;h4 id=&quot;1-facebook-의-html-분석하기&quot;&gt;1. &lt;a href=&quot;https://www.facebook.com/&quot;&gt;Facebook&lt;/a&gt; 의 HTML 분석하기&lt;/h4&gt;
-&lt;p&gt;&lt;a href=&quot;/2018/06/12/python-crawling-selenium-1/&quot;&gt;파이썬 크롤링 튜토리얼 - 3&lt;/a&gt;의 Selenium으로 검색하기에서 봤듯이, input에 값을 입력하려면 name이나 id같은 &lt;code class=&quot;highlighter-rouge&quot;&gt;선택자&lt;/code&gt;가 필요합니다. 개발자 모드에서 찾아보도록 합시다. 
-&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41305034-aaec211a-6eac-11e8-9f94-3bf30c9e0eb9.png&quot; alt=&quot;image&quot; /&gt;
-아이디를 입력해야 하는 곳은 &lt;code class=&quot;highlighter-rouge&quot;&gt;email&lt;/code&gt;이라는 id를 사용 중입니다.
-&lt;img src=&quot;https://user-images.githubusercontent.com/39974109/41305056-b84dd8b2-6eac-11e8-9098-c73e756f3e5a.png&quot; alt=&quot;image&quot; /&gt;
-패스워드를 입력해야 하는 곳은 &lt;code class=&quot;highlighter-rouge&quot;&gt;pass&lt;/code&gt;라는 id를 사용 중입니다.&lt;/p&gt;
-&lt;h4 id=&quot;2-python-코드-작성하기&quot;&gt;2. Python 코드 작성하기&lt;/h4&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;
-  &lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium.webdriver.common.keys&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Keys&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;아이디&quot;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;pwd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;패스워드&quot;&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;WebDriver의 경로&quot;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Chrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.facebook.org&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Facebook&quot;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_element_by_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;email&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_element_by_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;pass&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Keys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RETURN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;usr과 pwd에는 본인의 페이스북 아이디와 비밀번호를 각각 입력해주면 됩니다.&lt;br /&gt;
-driver.get 까지는 &lt;a href=&quot;/2018/06/12/python-crawling-selenium-1/&quot;&gt;파이썬 크롤링 튜토리얼 - 3&lt;/a&gt;에서 다뤘던 내용이라 생략하겠습니다.&lt;br /&gt;&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;assert &quot;Facebook&quot; in driver.title&lt;/code&gt; : driver.title이 Facebook 이 아니면 예외처리를 하여 Error을 내줘! 라는 의미입니다. Facebook 에 접근한건지 아닌지를 판단하기 위해 입력한 코드입니다. &lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;elem = driver.find_element_by_id(&quot;email&quot;)&lt;/code&gt; : 위에서 분석한 아이디 입력란의 id를 찾아서 커서를 두겠다는 의미입니다.&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;elem.send_keys(usr)&lt;/code&gt; : usr에 입력한 페이스북 아이디 값을 현재 커서가 위치한 곳에 넣겠다는 뜻입니다.&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;elem = driver.find_element_by_id(&quot;pass&quot;)&lt;/code&gt; : 위에서 분석한 패스워드 입력란의 id를 찾아서 커서를 두겠다는 의미입니다.&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;elem.send_keys(pwd)&lt;/code&gt; : pwd에 입력한 페이스북 패스워드 값을 현재 커서가 위치한 곳에 넣겠다는 뜻입니다.&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;elem.send_keys(Keys.RETURN)&lt;/code&gt; : Enter키를 누르게 합니다.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;그리고 py파일을 실행하게 되면, 페이스북에 알아서 로그인 하는 게 보입니다.&lt;/p&gt;
-
-&lt;p&gt;응용하여 Logout 기능까지도 만들어 보면, 이 포스트를 제대로 이해했는지 확인할 수 있을 것 같습니다.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2018/06/12/python-crawling-selenium-2/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/12/python-crawling-selenium-2/</guid>
         
         
         <category>crawl</category>
