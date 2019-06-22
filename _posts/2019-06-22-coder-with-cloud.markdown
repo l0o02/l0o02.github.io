@@ -19,3 +19,10 @@ VSCODE를 설치하지도 않았고, 100% 웹 사이트에서 실행 가능하�
 ![image](https://user-images.githubusercontent.com/39974109/59957364-9841c180-94d2-11e9-9d27-79eecd5dacf7.png)
 우선적으로 구글 클라우드 플랫폼을 가입해야한다. [이동하기](https://console.cloud.google.com/), 구글 클라우드는 약 1년정도 무료로 사용 가능하며, 300$ 정도의 크레딧을 제공한다. 현역 병사들에게 1년정도의 무료 사용 기간은 어느정도 충분하다고 생각하지만 부족하다면은 결제를 고려해보는 것도 좋다. 그리고 다른 서버를 가지고 있다면, 이 과정은 생략해도 좋다.
 #### VM 인스턴스 생성하기
+Google Cloud 에서 가상 머신을 만들자.
+![image](https://user-images.githubusercontent.com/39974109/59957777-cde8a980-94d6-11e9-9133-3d29d6970bb4.png)
+컴퓨터 사양은 각자 할 작업에 맞춰 설정하는 것이 좋다. 프론트엔드쪽만 가볍게 공부할거라면은, 아무래도 오래 쓸 수 있게 저렴한 사양으로 설정하는 것을 추천한다.
+
+#### SSH 접속하기
+![image](https://user-images.githubusercontent.com/39974109/59957795-27e96f00-94d7-11e9-9da0-7d39dbf47e3e.png)
+VM 인스턴스에 SSH를 눌러 실행시킨다.
